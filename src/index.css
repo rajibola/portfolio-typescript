@@ -16,6 +16,16 @@ code {
 
 @layer base {
   @font-face {
+    font-family: "Overpass Mono";
+    src: local("Overpass Mono Light"), local("OverpassMono-Light"),
+      url("/public/fonts/OverpassMono-Light.woff2") format("woff2"),
+      url("/public/fonts/OverpassMono-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
     font-family: "Roboto Condensed";
     src: local("Roboto Condensed Bold"), local("RobotoCondensed-Bold"),
       url("/public/fonts/RobotoCondensed-Bold.woff2") format("woff2"),
