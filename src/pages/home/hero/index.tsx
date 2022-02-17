@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { Header } from "../../../shared/header";
+import { Header } from "shared/header";
 
 const Hero = () => {
   let myText = useRef<HTMLDivElement>(null);

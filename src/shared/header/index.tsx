@@ -1,7 +1,7 @@
 import gsap, { Bounce } from "gsap";
-import { useEffect, useRef } from "react";
+import { FC, useEffect, useRef } from "react";
 
-export const Header = ({ show }: { show: boolean }) => {
+export const Header: FC<{ show: boolean }> = ({ show }) => {
   let header = useRef(null);
   let letterI = useRef<HTMLDivElement>(null);
 
