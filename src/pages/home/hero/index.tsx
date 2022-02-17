@@ -1,50 +1,78 @@
-import { gsap, Power3 } from "gsap";
-import React, { useEffect, useLayoutEffect, useRef } from "react";
-import { Header } from "../../../shared/header";
-import logo from "../../../web.png";
+import { Expo, gsap } from "gsap";
+import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { Link } from "react-router-dom";
+import { Header } from "../../../shared/header";
 
 const Hero = () => {
-  let background = useRef<HTMLDivElement>(null);
-  let dropdown = useRef<HTMLDivElement>(null);
   let myText = useRef<HTMLDivElement>(null);
   let ridwan = useRef<HTMLDivElement>(null);
-
-  console.log(ridwan);
+  let cover = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let firstText = cover.current?.firstChild!;
+    let secondText = firstText.nextSibling!;
+    let thirdText = secondText.nextSibling!;
+
+    let firstName = ridwan.current?.firstChild!;
+    let secondName = firstName?.nextSibling!;
+
+    let myFirstText = myText.current?.firstChild!;
+    let mySecondText = myFirstText.nextSibling!;
+    let myThirdText = mySecondText.nextSibling!;
+
+    console.log(firstName);
+
     let tl = gsap.timeline();
-    tl.from(background.current, {
+    tl.to([firstText, secondText, thirdText], {
       delay: 1,
-      marginLeft: 0,
-      duration: 0.5,
-      ease: Power3.easeIn,
+      top: "-100%",
+      duration: 0.8,
+      ease: Expo.easeOut,
+      stagger: {
+        amount: 0.3,
+      },
     })
-      .from(dropdown.current, {
-        height: 0,
-        duration: 0.5,
-        ease: Power3.easeOut,
-      })
-      .from(myText.current, { duration: 2, opacity: 0 })
-      .from(ridwan.current, {
-        opacity: 0,
-        duration: 1,
-        stagger: {
-          amount: 0.5,
+      .from(
+        [firstName, secondName],
+        {
+          paddingTop: "135px",
+          duration: 0.3,
+          opacity: 0,
+          ease: Expo.easeOut,
+          stagger: {
+            amount: 0.2,
+          },
         },
-      });
-  });
+        "-=0.5"
+      )
+      .from(
+        [myFirstText, mySecondText, myThirdText],
+        {
+          paddingLeft: "25px",
+          duration: 0.2,
+          opacity: 0,
+          ease: Expo.easeOut,
+          stagger: {
+            amount: 0.2,
+          },
+        },
+        "-=0.1"
+      );
+  }, []);
 
   return (
     <div className="w-screen overflow-hidden relative h-screen flex">
-      <Header />
+      <div ref={cover}>
+        <div className="absolute w-full h-full bg-[#FFF2C5] z-20 top-0" />
+        <div className="absolute w-full h-full bg-[#FFF2C5] z-20 left-[33.3%] top-0" />
+        <div className="absolute w-full h-full bg-[#FFF2C5] z-20 left-[66.6%] top-0" />
+      </div>
 
-      <div
-        ref={dropdown}
-        className="w-[425px] top-0 bg-[#F0D0AA] left-[420px] bottom-[290px] flex justify-center gap-8 absolute -z-10"
-      >
+      <Header show={true} />
+
+      <div className="w-[425px] top-0 bg-[#F0D0AA] left-[420px] bottom-[290px] flex justify-center gap-8 absolute -z-10">
         <Link to="#">in</Link>
         <Link to="#">fb</Link>
         <Link to="#">gh</Link>
@@ -68,16 +96,13 @@ const Hero = () => {
           </Link>
         </div>
       </div>
-      <div
-        ref={background}
-        className="w-full h-full mt-[165px] absolute ml-[112px] bg-[#FFF2C5] -z-20 flex"
-      />
-      <div className="w-min h-min absolute left-14 bottom-[120px]">
-        <LargeText ref={ridwan}>RID</LargeText>
-        <LargeText ref={ridwan}>WAN</LargeText>
+      <div className="w-full h-full mt-[145px] absolute ml-[112px] bg-[#FFF2C5] -z-20 flex"></div>
+      <div ref={ridwan} className="w-min h-min absolute left-14 bottom-[120px]">
+        <LargeText>RID</LargeText>
+        <LargeText>WAN</LargeText>
       </div>
 
-      <div className="h-[150px] w-full pl-[532px] self-end">
+      <div className="h-[140px] w-full pl-[532px] self-end">
         <div className="bg-white w-full h-full flex items-center justify-center gap-40">
           <Link to="#" className="border-b-2 pb-3 border-black leading-none">
             download cv
@@ -97,10 +122,10 @@ const Hero = () => {
 export default Hero;
 
 const LargeText = styled.h1`
-  ${tw`text-[152px] font-bold font-robotoCondensed`}
+  ${tw`text-[152px] font-bold font-robotoCondensed h-[135px] overflow-hidden`}
   color: transparent;
   -webkit-text-stroke: 1px;
   -webkit-text-stroke-color: black;
   -webkit-text-fill-color: transparent;
-  line-height: 155px;
+  line-height: 135px;
 `;

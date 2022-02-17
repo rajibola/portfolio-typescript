@@ -1,8 +1,13 @@
 import React from "react";
-import Home from "./pages/home";
+import { BrowserRouter } from "react-router-dom";
+import { Navigations } from "./routers";
 
 function App() {
-  return <Home />;
+  return (
+    <BrowserRouter>
+      <Navigations />
+    </BrowserRouter>
+  );
 }
 
 export default App;
