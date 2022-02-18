@@ -18,7 +18,7 @@ export const Header: FC<{ show: boolean }> = ({ show }) => {
   return (
     <header
       ref={header}
-      className="flex justify-between items-center h-[58px] my-[45px] px-[57px] absolute w-screen"
+      className="flex justify-between items-center h-[58px] my-[45px] px-[57px] absolute w-screen z-50"
     >
       <div className="w-[515px] font-bold text-4xl items-baseline">
         <div className="flex items-center ">
