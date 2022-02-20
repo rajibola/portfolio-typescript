@@ -4,6 +4,7 @@ module.exports = {
     extend: {},
     fontFamily: {
       raleway: ["Raleway"],
+      graphik: ["Graphik"],
       sourceSansPro: ["Source Sans Pro"],
       robotoCondensed: ["Roboto Condensed"],
       overpassMono: ["Overpass Mono"],
