@@ -1,11 +1,14 @@
-import { portfolio, web, nasa, pexel } from "assets/images";
 import gsap, { Power3 } from "gsap";
-import { useEffect, useRef, useState } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { onPressNextImage, onPressPrevImage } from "utils/animations";
+import { IMAGES } from "utils/helpers";
 
-const IMAGES = [web, nasa, nasa, pexel, pexel];
+gsap.registerPlugin(ScrollTrigger);
 
 export const Hero = () => {
   const tl = gsap.timeline();
+
   const [count, setcount] = useState(1);
   const [currentValue, setcurrentValue] = useState(0);
 
@@ -13,6 +16,7 @@ export const Hero = () => {
   const overlay = useRef<HTMLDivElement>(null);
   const line = useRef<HTMLDivElement>(null);
   const mainText = useRef<HTMLDivElement>(null);
+  const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     tl.from(line.current, {
@@ -20,95 +24,53 @@ export const Hero = () => {
       width: 0,
       ease: Power3.easeInOut,
     });
+
+    gsap.to(mainText.current, {
+      duration: 1,
+      y: "200px",
+      ease: "none",
+      scrollTrigger: {
+        id: "section-A",
+        trigger: line.current,
+        start: "top bottom-=100",
+        toggleActions: "play none none reverse",
+        markers: true,
+        scrub: true,
+      },
+    });
   }, []);
 
   const onPressNext = () => {
     if (count === IMAGES.length) return;
-    tl.to(imagelist.current?.children[count - 1]!, {
-      duration: 0.9,
-      backgroundColor: "black",
-      ease: Power3.easeIn,
-    })
-      .to(
-        [mainText.current?.children],
-        {
-          opacity: 0,
-          duration: 0.5,
-          x: "-30",
-          ease: Power3.easeIn,
-          stagger: {
-            each: 0.1,
-          },
-        },
-        "<"
-      )
-      .to(
-        imagelist.current,
-        {
-          duration: 1,
-          x: `${currentValue - 100}vw`,
-          ease: Power3.easeIn,
-        },
-        "<"
-      )
-      .to(imagelist.current?.children[count - 1]!, {
-        backgroundColor: "rgba(0,0,0,0.5)",
-        duration: 0,
-        onComplete: () => {
-          setcount(count + 1);
-          setcurrentValue(currentValue - 100);
-        },
-      })
-      .to([mainText.current?.children], {
-        x: "30",
-        duration: 0.1,
-      })
-      .to(
-        [mainText.current?.children],
-        {
-          opacity: 1,
-          duration: 0.5,
-          x: "0",
-          ease: Power3.easeOut,
-          stagger: {
-            each: 0.1,
-          },
-        },
-        "<0.2"
-      );
+    onPressNextImage(
+      imagelist,
+      count,
+      mainText,
+      currentValue,
+      setcurrentValue,
+      setcount
+    );
   };
 
   const onPressPrev = () => {
     if (count === 1) return;
-    tl.to(imagelist.current?.children[count - 1]!, {
-      duration: 1,
-      boxShadow: `rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px`,
-      ease: Power3.easeOut,
-    })
-      .to(
-        imagelist.current,
-        {
-          duration: 1,
-          x: `${currentValue + 100}vw`,
-          ease: Power3.easeIn,
-        },
-        "<"
-      )
-
-      .to(imagelist.current?.children[count - 1]!, {
-        duration: 0,
-        boxShadow: "none",
-        onComplete: () => {
-          setcount(count - 1);
-          setcurrentValue(currentValue + 100);
-        },
-      });
+    onPressPrevImage(
+      imagelist,
+      count,
+      mainText,
+      currentValue,
+      setcurrentValue,
+      setcount
+    );
   };
 
   return (
-    <section className="relative w-screen h-screen overflow-hidden">
+    <section
+      ref={container}
+      className="relative w-screen h-screen overflow-hidden"
+    >
       <div ref={imagelist} className="relative inline-flex">
-        {IMAGES.map((image, i) => (
+        {IMAGES.map(({ image }, i) => (
           <div
             className="w-full h-full bg-cover object-cover"
             style={{
@@ -130,9 +92,9 @@ export const Hero = () => {
           ref={mainText}
           className="font-extralight text-7xl font-graphik leading-tight w-3/4 mt-10 overflow-hidden"
         >
-          <div>How to create a carousel</div>
-          <div>with GSAP, ReactJS</div>
-          <div>and TypeScript</div>
+          {IMAGES[count - 1].text.map((item, i) => (
+            <div key={item + i}>{item}</div>
+          ))}
         </div>
 
         <div className="flex justify-between">
