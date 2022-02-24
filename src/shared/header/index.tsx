@@ -36,7 +36,7 @@ export const Header: FC<{ show: boolean }> = ({ show }) => {
           ui developer
         </p>
       </div>
-      <div className="w-[515px] flex justify-end mr-[52px] text-sm gap-8 font-bold font-sourceSansPro self-start mt-3">
+      <div className="w-[515px] flex justify-end mr-[52px] text-sm gap-8 font-sourceSansPro self-start mt-3">
         <h1>latest work</h1>
         <h1>blog</h1>
         <h1>schedule call</h1>
