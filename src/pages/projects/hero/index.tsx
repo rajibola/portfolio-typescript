@@ -1,8 +1,7 @@
-import gsap, { Power3 } from "gsap";
 import { FC, useEffect, useRef } from "react";
 import { hideText } from "utils/animations";
 
-export const Details = () => {
+export const Hero = () => {
   const textContainer = useRef<HTMLDivElement>(null);
   const scroll = useRef<HTMLDivElement>(null);
 
@@ -37,24 +36,6 @@ export const Details = () => {
           <div className="w-1 h-1 bg-white rounded-full mx-auto mt-1" />
         </div>
       </div>
-
-      {/* <div className="max-w-[1280px] w-full">
-        <ImageComponent image="ooo" />
-      </div> */}
     </section>
-  );
-};
-
-interface IImageComponent {
-  image: string;
-}
-
-export const ImageComponent: FC<IImageComponent> = ({ image }) => {
-  return (
-    <div>
-      <div className="w-1/2 px-[5%] h-[80vh] overflow-hidden border">
-        <img src={image} alt={image} />
-      </div>
-    </div>
   );
 };

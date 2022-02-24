@@ -1,11 +1,14 @@
 import { Header } from "shared/header";
-import { Details } from "./details";
+import { Hero } from "./hero";
+import { Gallery } from "./gallery";
+import SmoothScroll from "shared/smooth-scroll";
 
 export const Projects = () => {
   return (
-    <div className="w-screen bg-black">
+    <SmoothScroll className="w-screen bg-black">
       <Header show />
-      <Details />
-    </div>
+      <Hero />
+      <Gallery />
+    </SmoothScroll>
   );
 };
