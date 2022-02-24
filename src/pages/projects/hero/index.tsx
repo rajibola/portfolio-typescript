@@ -1,7 +1,11 @@
 import gsap, { Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { onPressNextImage, onPressPrevImage } from "utils/animations";
+import {
+  onPressNextImage,
+  onPressPrevImage,
+  textEffect,
+} from "utils/animations";
 import { IMAGES } from "utils/helpers";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -19,6 +23,10 @@ export const Hero = () => {
   const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    textEffect(mainText);
+  }, [count]);
+
+  useEffect(() => {
     tl.from(line.current, {
       duration: 0.4,
       width: 0,
@@ -34,7 +42,7 @@ export const Hero = () => {
         trigger: line.current,
         start: "top bottom-=100",
         toggleActions: "play none none reverse",
-        markers: true,
+        // markers: true,
         scrub: true,
       },
     });
@@ -71,16 +79,19 @@ export const Hero = () => {
     >
       <div ref={imagelist} className="relative inline-flex">
         {IMAGES.map(({ image }, i) => (
-          <div
-            className="w-full h-full bg-cover object-cover"
-            style={{
-              backgroundImage: `url(${image})`,
-              width: "100vw",
-              height: "100vh",
-              backgroundColor: "rgba(0,0,0,0.5)",
-              backgroundBlendMode: "multiply",
-            }}
-          />
+          <div className="w-screen overflow-hidden h-screen">
+            <div
+              key={i + image}
+              className="w-full h-full bg-cover object-cover"
+              style={{
+                backgroundImage: `url(${image})`,
+                width: "100vw",
+                height: "100vh",
+                backgroundColor: "rgba(0,0,0,0.5)",
+                backgroundBlendMode: "multiply",
+              }}
+            />
+          </div>
         ))}
       </div>
 
@@ -93,7 +104,9 @@ export const Hero = () => {
           className="font-extralight text-7xl font-graphik leading-tight w-3/4 mt-10 overflow-hidden"
         >
           {IMAGES[count - 1].text.map((item, i) => (
-            <div key={item + i}>{item}</div>
+            <div className="opacity-0" key={item + i}>
+              {item}
+            </div>
           ))}
         </div>
 

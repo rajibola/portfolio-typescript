@@ -13,9 +13,22 @@ export const onPressPrevImage = (
 ) => {
   tl.to(imagelist.current?.children[count - 1]!, {
     duration: 1,
-    boxShadow: `rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px`,
-    ease: Power3.easeOut,
+    backgroundColor: "black",
+    ease: Power3.easeIn,
   })
+    .to(
+      [mainText.current?.children],
+      {
+        opacity: 0,
+        duration: 0.5,
+        x: "30",
+        ease: Power3.easeIn,
+        stagger: {
+          each: 0.1,
+        },
+      },
+      "<"
+    )
     .to(
       imagelist.current,
       {
@@ -27,30 +40,25 @@ export const onPressPrevImage = (
     )
 
     .to(imagelist.current?.children[count - 1]!, {
+      backgroundColor: "rgba(0,0,0,0.5)",
       duration: 0,
-      boxShadow: "none",
       onComplete: () => {
         setcount(count - 1);
         setcurrentValue(currentValue + 100);
       },
-    }).to([mainText.current?.children], {
-      x: "30",
-      duration: 0.2,
-    })
-    .to(
-      [mainText.current?.children],
-      {
-        opacity: 1,
-        duration: 0.5,
-        x: "0",
-        ease: Power3.easeOut,
-        stagger: {
-          each: 0.1,
-        },
-      },
-      "<0.2"
-    );
-}
+    });
+  // .from(
+  //   imagelist.current?.children[count - 2].firstChild!,
+  //   {
+  //     duration: 1,
+  //     backgroundColor: "rgba(0,0,0,0.8)",
+  //     zoom: 1.05,
+  //     transformOrigin: "top top",
+  //     ease: Power3.easeOut,
+  //   },
+  //   "<"
+  // );
+};
 
 export const onPressNextImage = (
   imagelist: RefObject<HTMLDivElement>,
@@ -60,6 +68,7 @@ export const onPressNextImage = (
   setcurrentValue: (data: number) => void,
   setcount: (data: number) => void
 ) => {
+  const tl = gsap.timeline();
   tl.to(imagelist.current?.children[count - 1]!, {
     duration: 0.9,
     backgroundColor: "black",
@@ -94,22 +103,46 @@ export const onPressNextImage = (
         setcount(count + 1);
         setcurrentValue(currentValue - 100);
       },
-    })
-    .to([mainText.current?.children], {
-      x: "30",
-      duration: 0.2,
-    })
-    .to(
-      [mainText.current?.children],
-      {
-        opacity: 1,
-        duration: 0.5,
-        x: "0",
-        ease: Power3.easeOut,
-        stagger: {
-          each: 0.1,
-        },
+    });
+};
+
+export const textEffect = (mainText: RefObject<HTMLDivElement>) => {
+  tl.to(
+    [mainText.current?.children],
+    {
+      x: 30,
+      opacity: 0,
+    },
+    "-=0.05"
+  ).to(
+    [mainText.current?.children],
+    {
+      opacity: 1,
+      duration: 0.5,
+      x: 0,
+      ease: Power3.easeOut,
+      stagger: {
+        amount: 0.1,
       },
-      "<0.2"
-    );
+    },
+    "-=0.3"
+  );
+};
+
+export const hideText = (
+  target: any,
+  height: number,
+  duration: number = 0.9,
+  delay?: number
+) => {
+  const tl = gsap.timeline();
+  return tl.from(target, {
+    delay: delay,
+    paddingTop: `${height}px`,
+    duration: duration,
+    ease: Power3.easeOut,
+    stagger: {
+      amount: 0.2,
+    },
+  });
 };
