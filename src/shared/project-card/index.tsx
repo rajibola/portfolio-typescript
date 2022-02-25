@@ -1,16 +1,27 @@
-import { nasa, portfolio } from "assets/images";
+import { portfolio } from "assets/images";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FC, HTMLAttributes, useEffect, useRef } from "react";
+import { FC, useEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 interface Props {
   image?: string;
   margin?: boolean;
+  title: string;
+  name: string;
+  tools: string[];
+  images?: string[];
 }
 
-export const ProjectCard: FC<Props> = ({ image, margin, ...props }) => {
+export const ProjectCard: FC<Props> = ({
+  image,
+  margin,
+  title,
+  name,
+  tools,
+  images,
+}) => {
   const bgImage = useRef<HTMLImageElement>(null);
   const imageCover = useRef<HTMLDivElement>(null);
   const parallax = useRef<HTMLDivElement>(null);
@@ -37,7 +48,7 @@ export const ProjectCard: FC<Props> = ({ image, margin, ...props }) => {
 
         scrollTrigger: {
           trigger: bgImage.current,
-          scrub: margin ? 2 : true,
+          scrub: margin ? 2 : 1,
           start: "top 80%",
           toggleActions: "play none none reverse",
           id: "section-B",
@@ -46,11 +57,7 @@ export const ProjectCard: FC<Props> = ({ image, margin, ...props }) => {
   }, []);
 
   return (
-    <div
-      ref={parallax}
-      className={`px-[5%] w-1/2 ${margin && "mt-60"}`}
-      {...props}
-    >
+    <div ref={parallax} className={`px-[5%] w-1/2 ${margin && "mt-60"}`}>
       <div
         ref={imageCover}
         className="h-[80vh]  max-w-[500px] w-full relative flex items-center overflow-hidden  p-0 m-0"
@@ -65,18 +72,18 @@ export const ProjectCard: FC<Props> = ({ image, margin, ...props }) => {
         </div>
       </div>
       <div className="flex w-full pt-[60px]">
-        <p className="uppercase text-11 tracking-2 opacity-70 pr-5">Clane</p>
+        <p className="uppercase text-11 tracking-2 opacity-70 pr-5">{name}</p>
         <div className="h-[1px] w-[35%] bg-white/30 mt-[5px]" />
       </div>
       <h1 className="my-[30px] text-22 max-w-[300px] leading-[1.6] font-light">
-        Aesthetic in mobile commerce experience
+        {title}
       </h1>
       <div className="opacity-60 max-w-[300px] -mt-[10] text-14 mb-4 pr-5">
-        <span className="-mt-5 leading-[1.8]">Strategy</span>.{" "}
-        <span className="-mt-5 leading-[1.8]">Concept</span>.{" "}
-        <span className="-mt-5 leading-[1.8]">UI/UX Design</span>.{" "}
-        <span className="-mt-5 leading-[1.8]">Web Design</span>.{" "}
-        <span className="-mt-5 leading-[1.8]">Mobile App</span>.
+        {tools.map((item, i) => (
+          <span className="-mt-5 leading-[1.8] mr-[5px]" key={i}>
+            {item}.
+          </span>
+        ))}
       </div>
     </div>
   );

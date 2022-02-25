@@ -6,7 +6,7 @@ export const Hero = () => {
   const scroll = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    hideText([textContainer.current?.children], 94);
+    hideText([textContainer.current?.children], 94, 1.5);
     hideText(scroll.current, 11, 1, 0.5);
   }, []);
 
