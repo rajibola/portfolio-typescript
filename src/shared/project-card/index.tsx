@@ -65,7 +65,7 @@ export const ProjectCard: FC<Props> = ({
         <div className="w-full h-full relative">
           <img
             ref={bgImage}
-            src={portfolio}
+            src={images?.[0]}
             alt={image}
             className="min-w-full min-h-full h-[120%] w-[120%] bg-cover bg-center object-cover -mt-[25%]"
           />

@@ -32,9 +32,9 @@ export const Hero = () => {
             SCROLL DOWN
           </h1>
         </div>
-        <div className="h-8 w-5 border rounded-full">
+        {/* <div className="h-8 w-5 border rounded-full">
           <div className="w-1 h-1 bg-white rounded-full mx-auto mt-1" />
-        </div>
+        </div> */}
       </div>
     </section>
   );
