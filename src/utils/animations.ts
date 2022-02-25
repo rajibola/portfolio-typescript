@@ -142,7 +142,7 @@ export const hideText = (
     duration: duration,
     ease: Power3.easeOut,
     stagger: {
-      amount: 0.2,
+      each: 0.2,
     },
   });
 };

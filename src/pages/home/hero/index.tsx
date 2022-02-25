@@ -55,7 +55,7 @@ const Hero = () => {
           opacity: 0,
           ease: Expo.easeOut,
           stagger: {
-            amount: 0.2,
+            amount: 0.3,
           },
         },
         "-=0.1"
@@ -66,9 +66,9 @@ const Hero = () => {
     <div className="w-screen overflow-hidden relative h-screen flex bg-black">
       <Header show={true} />
       <div ref={cover}>
-        <div className="absolute w-full h-full bg-[#838E83] z-40 top-0" />
-        <div className="absolute w-full h-full bg-[#838E83] z-40 left-[33.3%] top-0" />
-        <div className="absolute w-full h-full bg-[#838E83] z-40 left-[66.6%] top-0" />
+        <div className="absolute w-full h-full bg-[#000] z-40 top-0" />
+        <div className="absolute w-full h-full bg-[#000] z-40 left-[33.3%] top-0" />
+        <div className="absolute w-full h-full bg-[#000] z-40 left-[66.6%] top-0" />
       </div>
 
       <div className="w-[425px] top-0 bg-[#838E83] left-[420px] bottom-[290px] flex justify-center gap-8 absolute z-10">
@@ -90,7 +90,7 @@ const Hero = () => {
             experience.
           </div>
 
-          <Link to="#" className="pb-1 border-b-4 border-black text-lg">
+          <Link to="/projects" className="pb-1 border-b-4 border-black text-lg">
             Learn More
           </Link>
         </div>
