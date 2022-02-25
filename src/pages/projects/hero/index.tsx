@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { hideText } from "utils/animations";
 
 export const Hero = () => {
@@ -12,7 +12,7 @@ export const Hero = () => {
 
   return (
     <section className="text-white w-screen pb-[120px] pt-40">
-      <div className="max-w-[800px] w-full mx-auto font-graphik">
+      <div className="max-w-[850px] w-full mx-auto font-graphik">
         <div
           ref={textContainer}
           className="text-[82px] leading-[94px] font-thin my-[0.67em]"
