@@ -7,7 +7,7 @@ export const Hero = () => {
         <div className="my-[2.3em] overflow-hidden h-[12px]">
           <h1 className="text-[11px] tracking-[2px] uppercase font-normal">
             /{" "}
-            <Link to="/" className="opacity-50">
+            <Link to="/projects" className="opacity-50">
               WORK
             </Link>{" "}
             — Clane website
