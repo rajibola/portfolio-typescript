@@ -44,7 +44,7 @@ const SmoothScroll: FC<any> = ({ children }) => {
   };
 
   return (
-    <div className="parent fixed top-0 left-0 w-full h-full overflow-hidden">
+    <div className="fixed top-0 left-0 w-full h-full overflow-hidden">
       <div ref={scrollingContainerRef}>{children}</div>
     </div>
   );

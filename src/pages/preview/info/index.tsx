@@ -1,57 +1,72 @@
 import { portfolio } from "assets/images";
-import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { gsap, Power3 } from "gsap";
+import { useEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const Info = () => {
   const bgImage = useRef<HTMLImageElement>(null);
-  const overlay = useRef<HTMLImageElement>(null);
+  const imageCover = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap
-      .timeline({
+      .timeline()
+      .to(bgImage.current, {
+        duration: 1,
+
         scrollTrigger: {
-          trigger: overlay.current,
-          start: "top 60%",
-          toggleActions: "play none none none",
-          markers: true,
+          trigger: imageCover.current,
+          scrub: true,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+          id: "section-B",
+        },
+      })
+      .to(bgImage.current, {
+        duration: 1,
+        marginTop: "10px",
+
+        scrollTrigger: {
+          trigger: bgImage.current,
+          scrub: 1,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
           id: "section-A",
         },
-      })
-      .to(overlay.current, {
-        duration: 1,
-        x: "100%",
-        ease: Power3.easeOut,
-      })
-      .to(
-        bgImage.current,
-        {
-          duration: 1.2,
-          height: "105%",
-          width: "105%",
-          ease: Power3.easeOut,
-        },
-        "<"
-      );
+      });
   }, []);
 
   return (
-    <section className="text-white w-screen pb-[120px] pt-40">
-      <div className=" w-full mx-auto font-graphik flex">
-        <div className="w-2/3 h-[80vh] relative overflow-hidden">
+    <section className="text-white w-screen pt-40">
+      <div
+        ref={imageCover}
+        className="h-[80vh] max-w-[1140px] w-full relative flex items-center overflow-hidden  p-0 m-0"
+      >
+        <div className="w-[120%] h-[120%] relative">
           <img
             ref={bgImage}
             src={portfolio}
-            className="min-w-full min-h-full h-[130%] w-[130%] bg-cover absolute bg-center object-cover top-1/2 transform -translate-y-1/2"
-          />
-          <div
-            ref={overlay}
-            className="absolute w-full h-full bg-black justify-self-end"
+            alt={portfolio}
+            className="min-w-full min-h-full bg-cover bg-center object-cover -mt-[30%]"
           />
         </div>
-        <div className=" w-1/3"></div>
+      </div>
+
+      <div className="w-full bg-white -mt-[50vh] pt-[50vh] ">
+        <div className="flex justify-center items-center pl-[20%] px-[20vw] max-w-[1280px] mx-auto pt-[160px] pb-[120px]">
+          <div className="text-black w-1/3 font-graphik text-[1.25rem] leading-[1.8] self-start">
+            <h1>Tools</h1>
+          </div>
+          <div className="text-black w-96 font-graphik text-[1.25rem] leading-[1.8]">
+            <p>
+              We’ve worked incredibly hard to build a talented, industry leading
+              team of professionals. With a team of creative, strategist,
+              business and development specialists, we consistently strive to be
+              at the forefront of new media technology.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
