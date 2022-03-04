@@ -72,9 +72,9 @@ const Hero = () => {
       </div>
 
       <div className="w-[425px] top-0 bg-[#838E83] left-[420px] bottom-[290px] flex justify-center gap-8 absolute z-10">
-        <Link to="#">in</Link>
+        {/* <Link to="#">in</Link>
         <Link to="#">fb</Link>
-        <Link to="#">gh</Link>
+        <Link to="#">gh</Link> */}
 
         <div
           ref={myText}
@@ -90,7 +90,7 @@ const Hero = () => {
             experience.
           </div>
 
-          <Link to="/projects" className="pb-1 border-b-4 border-black text-lg">
+          <Link to="/projects" className="pb-1 border-b-4 border-white text-lg">
             Learn More
           </Link>
         </div>

@@ -61,7 +61,7 @@ const ScrollContainer: FC<{ children: any; scrollIntertia: number }> = ({
       >
         {children}
       </a.div>
-      <div style={{ height: currentHeight }} />
+      {/* <div style={{ height: currentHeight }} /> */}
     </>
   );
 };
