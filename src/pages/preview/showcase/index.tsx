@@ -12,8 +12,8 @@ export const Showcase = () => {
         start: "top top",
         pin: true,
         pinSpacing: false,
-        scrub: 1,
-        markers: true,
+        scrub: 100,
+        // markers: true,
       });
     });
   }, []);
@@ -39,8 +39,10 @@ export const Showcase = () => {
         ref={addToRef}
         className="w-full h-screen sticky flex items-center justify-center bg-sky-500"
       >
-        <h1 className="text-22">HHEHEHEH</h1>
+        <h1 className="text-22">Next Project Screen</h1>
       </div>
+
+      {/* <div className="relative bottom-0 mt-[100vh]" /> */}
     </section>
   );
 };
