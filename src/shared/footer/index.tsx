@@ -17,8 +17,9 @@ export const Footer = () => {
   const lineRef = useRef<HTMLDivElement[]>([]);
   const screenRef = useRef<HTMLDivElement>(null);
   const title = useRef<HTMLDivElement>(null);
-  const image = useRef<HTMLDivElement>(null);
+  const bottom = useRef<HTMLDivElement>(null);
   const margin = useRef<HTMLDivElement>(null);
+  const image = useRef<HTMLDivElement>(null);
 
   const addToRef = (el: any) =>
     el && !lineRef.current.includes(el) && lineRef.current.push(el);
@@ -47,29 +48,31 @@ export const Footer = () => {
       }
     );
 
-    gsap.from([margin.current], {
+    gsap.from([margin.current, bottom.current], {
       y: "-50%",
       // duration: 0.5,
       scrollTrigger: {
         trigger: screenRef.current,
         start: "top bottom",
         end: "center center",
-        markers: true,
         pinSpacing: false,
         toggleActions: "play none none reverse",
         scrub: 2,
       },
     });
 
-    // ScrollTrigger.create({
-    //   trigger: margin.current,
-    //   start: "center -=50%",
-    //   pin: true,
-    //   endTrigger: margin.current,
-    //   end: "center bottom",
-    //   scrub: true,
-    //   markers: true,
-    // });
+    gsap.from([image.current], {
+      y: "-30%",
+      duration: 0.5,
+      scrollTrigger: {
+        trigger: screenRef.current,
+        start: "top bottom",
+        end: "center center",
+        pinSpacing: false,
+        toggleActions: "play none none reverse",
+        scrub: 5,
+      },
+    });
   }, []);
 
   return (
@@ -77,7 +80,10 @@ export const Footer = () => {
       ref={screenRef}
       className="font-graphik overflow-hidden top-0 w-full h-screen sticky bg-black"
     >
-      <BgImage className="w-[70%] h-[70%] bg-center bg-contain bg-no-repeat absolute -right-40 rotate-180 opacity-50 rounded-full" />
+      <BgImage
+        ref={image}
+        className="w-[70%] h-[70%] bg-center bg-contain bg-no-repeat absolute -right-40 rotate-180 opacity-50 rounded-full"
+      />
 
       <div ref={margin} className="mt-[15%] mx-[15%] relative z-10 h-full">
         <div className="w-[70%] min-w-[300px]">
@@ -105,7 +111,7 @@ export const Footer = () => {
       </div>
       <div className="w-[110vh] h-[110vh] rounded-full border border-white/10 absolute -left-[50vh] top-0" />
 
-      <div className="w-full bottom-0 absolute">
+      <div ref={bottom} className="w-full bottom-0 absolute z-30">
         <h1 className="text-center mb-1 font-sourceSansPro text-white opacity-50">
           Design inspired by fleava's agency website. Remixed and built by
           Ridwan Ajibola
@@ -160,14 +166,23 @@ export const BgImage = styled.div`
 export const StyledTitle = styled.h1`
   ${tw``};
   position: relative;
+  overflow: hidden;
 
   &::after {
     content: "";
-    width: 100%;
-    height: 10px;
-    /* background-color: red; */
+    width: 0%;
+    height: 2px;
+    background-color: white;
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     left: 0;
+    margin-right: 10px;
+    transition: width 0.5s ease-out;
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+    }
   }
 `;
