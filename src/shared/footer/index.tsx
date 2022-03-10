@@ -1,53 +1,24 @@
-import gsap, { Power3 } from "gsap";
+import { dark } from "assets/images";
+import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import styled from "styled-components";
-import { FaLinkedin } from "react-icons/fa";
-import { GrStackOverflow } from "react-icons/gr";
-import { BsStackOverflow } from "react-icons/bs";
-import { TiSocialLinkedinCircular } from "react-icons/ti";
 import { AiOutlineGithub } from "react-icons/ai";
+import { BsStackOverflow } from "react-icons/bs";
+import { FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { dark } from "assets/images";
+import styled from "styled-components";
 import tw from "twin.macro";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const Footer = () => {
-  const lineRef = useRef<HTMLDivElement[]>([]);
   const screenRef = useRef<HTMLDivElement>(null);
   const title = useRef<HTMLDivElement>(null);
   const bottom = useRef<HTMLDivElement>(null);
   const margin = useRef<HTMLDivElement>(null);
   const image = useRef<HTMLDivElement>(null);
 
-  const addToRef = (el: any) =>
-    el && !lineRef.current.includes(el) && lineRef.current.push(el);
-
   useEffect(() => {
-    gsap.timeline().fromTo(
-      lineRef.current,
-      {
-        rotation: "-90deg",
-      },
-      {
-        duration: 20,
-        rotation: 0,
-        ease: Power3.easeOut,
-        stagger: {
-          amount: 0.3,
-        },
-
-        scrollTrigger: {
-          trigger: screenRef.current,
-          start: "top bottom",
-          end: "center center",
-          scrub: 1,
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-
     gsap.from([margin.current, bottom.current], {
       y: "-50%",
       // duration: 0.5,
@@ -96,13 +67,15 @@ export const Footer = () => {
               — Clane website
             </h1>
           </div>
-          <StyledTitle
-            className="text-80 font-extralight text-transparent bg-clip-text bg-gradient-to-br from-white/90 to-white/70 z-20 mb-6"
-            ref={title}
-          >
-            Let's work together.
-          </StyledTitle>
-          <h2 className="text-22 font-sourceSansPro font-extralight text-transparent bg-clip-text bg-gradient-to-br from-white/50 to-white/50 z-20">
+          <Link to="">
+            <StyledTitle
+              className="text-80 w-fit font-extralight text-transparent bg-clip-text bg-gradient-to-br from-white/80 to-white/50 z-20 mb-8"
+              ref={title}
+            >
+              Let's work together.
+            </StyledTitle>
+          </Link>
+          <h2 className="text-22 font-sourceSansPro font-light text-transparent bg-clip-text bg-gradient-to-br from-white/50 to-white/50 z-20">
             {/* I'm available for full-time, freelance and contract work. */}I
             am currently open to new job opportunities. If you wanna get in
             touch, talk to me about a project collaboration or just say hi
@@ -171,8 +144,9 @@ export const StyledTitle = styled.h1`
   &::after {
     content: "";
     width: 0%;
-    height: 2px;
+    height: 2.5px;
     background-color: white;
+    opacity: 0.7;
     position: absolute;
     bottom: 10px;
     left: 0;
