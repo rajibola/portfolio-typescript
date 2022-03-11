@@ -10,7 +10,7 @@ extend({ OrbitControls });
 const Phone = () => {
   const [model, setModel] = useState();
   useEffect(() => {
-    new GLTFLoader().load("/scene.gltf", setModel);
+    new GLTFLoader().load("/iphone/scene.gltf", setModel);
   }, []);
 
   return model ? <primitive object={model.scene} /> : null;

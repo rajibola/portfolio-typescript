@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Header } from "shared/header";
-import { Iphone } from "pages";
+import { Iphone } from "models";
 
 const Hero = () => {
   let myText = useRef<HTMLDivElement>(null);
@@ -83,9 +83,9 @@ const Hero = () => {
           Frontend developer.
         </div>
         <div className=" font-sourceSansPro font-light text-16 mb-[22px]">
-          Hi, I'm Ridwan Ajibola. A react and react-native developer focused on
-          building responsive cross-platform mobile applications that look the
-          same across various devices and have buttery-smooth user experience.
+          Hi, I'm Ridwan Ajibola. A frontend developer that focuses on building
+          responsive cross-platform mobile applications and websites that makes
+          user Experience realistic.
         </div>
 
         <Link to="/projects" className="pb-1 text-lg">
