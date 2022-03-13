@@ -71,7 +71,7 @@ const Hero = () => {
         <div className="absolute w-full h-full bg-[#000] z-40 left-[66.6%] top-0" />
       </div>
 
-      <div className="absolute top-0 right-0 left-0 self-center">
+      <div className="absolute top-0 right-[10%] left-0 self-center">
         <Iphone />
       </div>
 
@@ -82,7 +82,7 @@ const Hero = () => {
         <div className=" font-extralight text-6xl leading-[1] mb-4">
           Frontend developer.
         </div>
-        <div className=" font-sourceSansPro font-light text-16 mb-[22px]">
+        <div className=" font-sourceSansPro font-light text-16 mb-[22px] mix-blend-difference">
           Hi, I'm Ridwan Ajibola. A frontend developer that focuses on building
           responsive cross-platform mobile applications and websites that makes
           user Experience realistic.

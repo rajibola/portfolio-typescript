@@ -10,6 +10,7 @@ export const Showcase = () => {
   useEffect(() => {
     gsap.utils.toArray(screenRef.current).forEach((section: any) => {
       ScrollTrigger.create({
+        id: "showcase",
         trigger: section,
         start: "top top",
         pin: true,
@@ -18,6 +19,8 @@ export const Showcase = () => {
         // markers: true,
       });
     });
+
+    return () => ScrollTrigger.create({}).kill();
   }, []);
 
   const addToRef = (el: any) =>

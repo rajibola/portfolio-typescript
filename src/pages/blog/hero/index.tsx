@@ -1,6 +1,6 @@
 import gsap, { Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import {
   onPressNextImage,
   onPressPrevImage,
@@ -26,7 +26,7 @@ export const Hero = () => {
     textEffect(mainText);
   }, [count]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     tl.from(line.current, {
       duration: 0.4,
       width: 0,
@@ -46,6 +46,8 @@ export const Hero = () => {
         scrub: true,
       },
     });
+
+    return () => ScrollTrigger.create({}).kill();
   }, []);
 
   const onPressNext = () => {

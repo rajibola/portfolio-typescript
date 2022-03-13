@@ -1,7 +1,7 @@
 import { portfolio } from "assets/images";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,7 +9,7 @@ export const Info = () => {
   const bgImage = useRef<HTMLImageElement>(null);
   const imageCover = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap
       .timeline()
       .to(bgImage.current, {
@@ -20,7 +20,7 @@ export const Info = () => {
           scrub: true,
           start: "top 80%",
           toggleActions: "play none none reverse",
-          id: "section-B",
+          id: "info-B",
         },
       })
       .to(bgImage.current, {
@@ -32,9 +32,11 @@ export const Info = () => {
           scrub: 1,
           start: "top 80%",
           toggleActions: "play none none reverse",
-          id: "section-A",
+          id: "info-A",
         },
       });
+
+    return () => ScrollTrigger.create({}).kill();
   }, []);
 
   return (

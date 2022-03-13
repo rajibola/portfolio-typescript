@@ -1,7 +1,7 @@
 import { dark } from "assets/images";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { AiOutlineGithub } from "react-icons/ai";
 import { BsStackOverflow } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa";
@@ -18,38 +18,32 @@ export const Footer = () => {
   const margin = useRef<HTMLDivElement>(null);
   const image = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    gsap.from([margin.current, bottom.current], {
-      y: "-50%",
-      // duration: 0.5,
-      scrollTrigger: {
-        trigger: screenRef.current,
-        start: "top bottom",
-        end: "center center",
-        pinSpacing: false,
-        toggleActions: "play none none reverse",
-        scrub: 2,
-      },
-    });
-
-    gsap.from([image.current], {
-      y: "-30%",
-      duration: 0.5,
-      scrollTrigger: {
-        trigger: screenRef.current,
-        start: "top bottom",
-        end: "center center",
-        pinSpacing: false,
-        toggleActions: "play none none reverse",
-        scrub: 5,
-      },
-    });
+  useLayoutEffect(() => {
+    // gsap
+    //   .timeline({
+    //     scrollTrigger: {
+    //       trigger: screenRef.current,
+    //       start: "top bottom",
+    //       end: "center center",
+    //       toggleActions: "play none none reverse",
+    //       scrub: 1,
+    //       id: "footer",
+    //     },
+    //   })
+    //   .from([margin.current, bottom.current], {
+    //     y: "-50%",
+    //     duration: 0.5,
+    //   })
+    //   .from([image.current], {
+    //     y: "-30%",
+    //     duration: 0.5,
+    //   });
   }, []);
 
   return (
-    <footer
+    <div
       ref={screenRef}
-      className="font-graphik overflow-hidden top-0 w-full h-screen sticky bg-black"
+      className="font-graphik overflow-hidden top-0 w-full h-screen relative bg-black"
     >
       <BgImage
         ref={image}
@@ -61,10 +55,10 @@ export const Footer = () => {
           <div className="my-[2.3em] overflow-hidden h-[12px]">
             <h1 className="text-[11px] tracking-[2px] uppercase font-normal">
               /{" "}
-              <Link to="/projects" className="opacity-50">
-                CONTACT
+              <Link to="/contact" className="opacity-50">
+                contact
               </Link>{" "}
-              — Clane website
+              — About
             </h1>
           </div>
           <Link to="">
@@ -107,7 +101,7 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
 

@@ -39,7 +39,7 @@ export const ProjectCard: FC<Props> = ({
           scrub: 2,
           start: "top 80%",
           toggleActions: "play none none reverse",
-          id: "section-A",
+          id: "card-A",
         },
       })
       .to(bgImage.current, {
@@ -47,13 +47,19 @@ export const ProjectCard: FC<Props> = ({
         marginTop: "150",
 
         scrollTrigger: {
+          immediateRender: false,
           trigger: bgImage.current,
           scrub: margin ? 2 : 1,
           start: "top 80%",
           toggleActions: "play none none reverse",
-          id: "section-B",
+          id: "card-B",
         },
       });
+
+    return () => {
+      ScrollTrigger.getById("card-A").kill();
+      ScrollTrigger.getById("card-B").kill();
+    };
   }, []);
 
   return (
