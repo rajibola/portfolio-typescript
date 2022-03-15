@@ -1,9 +1,8 @@
 import { Footer } from "shared/footer";
-import ScrollContainer from "shared/scroll-container";
-import SmoothScroll from "shared/smooth-scroll";
 import { Hero } from "./hero";
 import { Info } from "./info";
 import { LargeImage } from "./large-image";
+import { NextProject } from "./next-project";
 import { Showcase } from "./showcase";
 
 export const Preview = () => {
@@ -13,8 +12,8 @@ export const Preview = () => {
       <Info />
       <LargeImage />
       <Showcase />
-
-      <Footer />
+      <NextProject />
+      {/* <Footer /> */}
     </div>
   );
 };

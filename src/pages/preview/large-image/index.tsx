@@ -1,4 +1,4 @@
-import { portfolio } from "assets/images";
+import { portfolio, project2, web } from "assets/images";
 import gsap from "gsap";
 import { useLayoutEffect, useRef } from "react";
 
@@ -17,11 +17,11 @@ export const LargeImage = () => {
   }, []);
 
   return (
-    <section ref={hero} className="h-[130vh] overflow-hidden relative">
+    <section ref={hero} className="h-[110vh] overflow-hidden relative">
       <img
-        src={portfolio}
+        src={project2}
         ref={heroImage}
-        className="block h-[125%] absolute -top-[35%] will-change-transform object-fill"
+        className="block h-[125%] width-[100%] absolute -top-[35%] will-change-transform object-cover"
       />
     </section>
   );

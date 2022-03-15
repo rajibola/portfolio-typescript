@@ -1,11 +1,11 @@
-import { web, portfolio, nasa } from "assets/images";
+import { web, portfolio, project1 } from "assets/images";
 
 export default [
   {
     name: "Clane Website",
     title: "A React Web Application",
     tools: ["React", "Redux", "TailwindCSS", "Styled-Component", "Axios"],
-    images: [nasa],
+    images: [project1],
     details: "",
     tag: "web",
   },
@@ -66,7 +66,7 @@ export default [
       "React Native SVG",
       "Axios",
     ],
-    images: [nasa],
+    images: [project1],
     details: "",
     tag: "mobile",
   },
@@ -96,7 +96,7 @@ export default [
       "React Native SVG",
       "Axios",
     ],
-    images: [nasa],
+    images: [project1],
     details: "",
     tag: "mobile",
   },

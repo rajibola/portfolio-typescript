@@ -1,4 +1,4 @@
-import { portfolio } from "assets/images";
+import { portfolio, project2, project3 } from "assets/images";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useLayoutEffect, useRef } from "react";
@@ -48,19 +48,19 @@ export const Info = () => {
         <div className="w-[120%] h-[120%] relative">
           <img
             ref={bgImage}
-            src={portfolio}
-            alt={portfolio}
+            src={project3}
+            alt={project3}
             className="min-w-full min-h-full bg-cover bg-center object-cover -mt-[30%]"
           />
         </div>
       </div>
 
-      <div className="w-full bg-white -mt-[50vh] pt-[50vh] ">
+      <div className="w-full bg-[#4b4b4b] -mt-[50vh] pt-[50vh] ">
         <div className="flex justify-center items-center pl-[20%] px-[20vw] max-w-[1280px] mx-auto pt-[160px] pb-[120px]">
-          <div className="text-black w-1/3 font-graphik text-[1.25rem] leading-[1.8] self-start">
+          <div className="text-white w-1/3 font-graphik text-[1.25rem] leading-[1.8] self-start">
             <h1>Tools</h1>
           </div>
-          <div className="text-black w-96 font-graphik text-[1.25rem] leading-[1.8]">
+          <div className="text-white w-96 font-graphik text-[1.25rem] leading-[1.8]">
             <p>
               We’ve worked incredibly hard to build a talented, industry leading
               team of professionals. With a team of creative, strategist,
