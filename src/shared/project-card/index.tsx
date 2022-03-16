@@ -24,15 +24,16 @@ export const ProjectCard: FC<Props> = ({
 }) => {
   const bgImage = useRef<HTMLImageElement>(null);
   const imageCover = useRef<HTMLDivElement>(null);
+  const textCover = useRef<HTMLDivElement>(null);
   const parallax = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap
       .timeline()
-      .to(imageCover.current, {
+      .to([imageCover.current, textCover.current], {
         delay: 1,
         duration: 1,
-        marginTop: margin ? "-250" : "-50",
+        y: margin ? "-250" : "-50",
 
         scrollTrigger: {
           trigger: bgImage.current,
@@ -44,7 +45,7 @@ export const ProjectCard: FC<Props> = ({
       })
       .to(bgImage.current, {
         duration: 1,
-        marginTop: "150",
+        y: "150",
 
         scrollTrigger: {
           immediateRender: false,
@@ -77,19 +78,21 @@ export const ProjectCard: FC<Props> = ({
           />
         </div>
       </div>
-      <div className="flex w-full pt-[60px]">
-        <p className="uppercase text-11 tracking-2 opacity-70 pr-5">{name}</p>
-        <div className="h-[1px] w-[35%] bg-white/30 mt-[5px]" />
-      </div>
-      <h1 className="my-[30px] text-22 max-w-[300px] leading-[1.6] font-light">
-        {title}
-      </h1>
-      <div className="opacity-60 max-w-[300px] -mt-[10] text-14 mb-4 pr-5">
-        {tools.map((item, i) => (
-          <span className="-mt-5 leading-[1.8] mr-[5px]" key={i}>
-            {item}.
-          </span>
-        ))}
+      <div ref={textCover}>
+        <div className="flex w-full pt-[60px]">
+          <p className="uppercase text-11 tracking-2 opacity-70 pr-5">{name}</p>
+          <div className="h-[1px] w-[35%] bg-white/30 mt-[5px]" />
+        </div>
+        <h1 className="my-[30px] text-22 max-w-[300px] leading-[1.6] font-light">
+          {title}
+        </h1>
+        <div className="opacity-60 max-w-[300px] -mt-[10] text-14 mb-4 pr-5">
+          {tools.map((item, i) => (
+            <span className="-mt-5 leading-[1.8] mr-[5px]" key={i}>
+              {item}.
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
