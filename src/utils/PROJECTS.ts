@@ -1,12 +1,25 @@
-import { web, portfolio, project1 } from "assets/images";
+import {
+  web,
+  portfolio,
+  project1,
+  claneweb1,
+  claneweb2,
+  claneweb3,
+  prospa1,
+  prospa2,
+  prospa3,
+  prospa4,
+} from "assets/images";
 
 export default [
   {
     name: "Clane Website",
     title: "A React Web Application",
     tools: ["React", "Redux", "TailwindCSS", "Styled-Component", "Axios"],
-    images: [project1],
-    details: "",
+    images: [claneweb1, claneweb2, claneweb3],
+    details:
+      "We’ve worked incredibly hard to build a talented, industry leading team of professionals. With a team of creative, strategist, business and development specialists, we consistently strive to be at the forefront of new media technology.",
+    colors: [],
     tag: "web",
   },
   {
@@ -18,9 +31,9 @@ export default [
       "Redux",
       "MomentJs",
       "React Native Camera",
-      "React Native SVG",
       "Axios",
     ],
+    colors: [],
     images: [web],
     details: "",
     tag: "mobile",
@@ -81,9 +94,9 @@ export default [
       "React Native SVG",
       "Axios",
     ],
-    images: [portfolio],
+    images: [prospa1, prospa2, prospa3, prospa4],
     details: "",
-    tag: "mobile",
+    tag: "web",
   },
   {
     name: "Rise",
