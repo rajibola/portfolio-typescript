@@ -1,9 +1,8 @@
-import { pexel, portfolio, project2, web } from "assets/images";
 import gsap from "gsap";
-import { useLayoutEffect, useRef, useState } from "react";
+import { FC, useLayoutEffect, useRef, useState } from "react";
 import { BlobCursor } from "shared/blob-cursor";
 
-export function NextProject() {
+export const NextProject: FC<{ project: any }> = ({ project }) => {
   const [hovered, setHovered] = useState(false);
   const parent = useRef<HTMLDivElement>(null);
   const next = useRef<HTMLDivElement>(null);
@@ -28,7 +27,7 @@ export function NextProject() {
     >
       <section ref={next} className="h-[110vh] overflow-hidden relative">
         <img
-          src={pexel}
+          src={project.images[0]}
           ref={nextImge}
           className="block h-[125%] width-[100%] absolute -top-[35%] will-change-transform object-cover"
         />
@@ -36,4 +35,4 @@ export function NextProject() {
       </section>
     </div>
   );
-}
+};

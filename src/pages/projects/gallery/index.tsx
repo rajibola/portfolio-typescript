@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { ProjectCard } from "shared/project-card";
 import styled from "styled-components";
 import PROJECTS from "utils/PROJECTS";
@@ -92,11 +92,12 @@ export const Gallery = () => {
           const hasMargin = (i + 1) % 2 === 0;
           return (
             <ProjectCard
-              title={title}
-              name={name}
-              tools={tools}
-              images={images}
-              margin={hasMargin}
+              data={{ title, name, tools, images, margin: hasMargin }}
+              // title={title}
+              // name={name}
+              // tools={tools}
+              // images={images}
+              // margin={hasMargin}
               key={i}
               ref={addToRef}
             />

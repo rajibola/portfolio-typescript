@@ -1,20 +1,30 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { forwardRef, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 interface Props {
-  image?: string;
-  margin?: boolean;
-  title: string;
-  name: string;
-  tools: string[];
-  images?: string[] | string;
+  // image?: string;
+  // margin?: boolean;
+  // title: string;
+  // name: string;
+  // tools: string[];
+  // images?: string[] | string;
+  data: {
+    image?: string;
+    margin?: boolean;
+    title: string;
+    name: string;
+    tools: string[];
+    images?: string[] | string;
+  };
 }
 
 export const ProjectCard = forwardRef<HTMLDivElement, Props>(
-  ({ image, margin, title, name, tools, images, ...props }, ref) => {
+  ({ data, ...props }, ref) => {
+    const { image, margin, title, name, tools, images } = data;
     const bgImage = useRef<HTMLImageElement>(null);
     const imageCover = useRef<HTMLDivElement>(null);
     const textCover = useRef<HTMLDivElement>(null);
@@ -56,19 +66,21 @@ export const ProjectCard = forwardRef<HTMLDivElement, Props>(
         ref={parallax}
         className={`px-[5%] w-1/2 ${margin && "mt-60"} relative`}
       >
-        <div
-          ref={imageCover}
-          className="h-[80vh]  max-w-[500px] w-full relative flex items-center overflow-hidden  p-0 m-0"
-        >
-          <div ref={ref} className="w-full h-full relative">
-            <img
-              ref={bgImage}
-              src={images?.[0]}
-              alt={image}
-              className="min-w-full min-h-full h-[120%] w-[120%] bg-cover bg-center object-cover -mt-[25%]"
-            />
+        <Link to={`/projects/${name.split(" ").join("-").toLowerCase()}`}>
+          <div
+            ref={imageCover}
+            className="h-[80vh]  max-w-[500px] w-full relative flex items-center overflow-hidden  p-0 m-0"
+          >
+            <div ref={ref} className="w-full h-full relative">
+              <img
+                ref={bgImage}
+                src={images?.[0]}
+                alt={image}
+                className="min-w-full min-h-full h-[120%] w-[120%] bg-cover bg-center object-cover -mt-[25%]"
+              />
+            </div>
           </div>
-        </div>
+        </Link>
         <div ref={textCover}>
           <div className="flex w-full pt-[60px]">
             <p className="uppercase text-11 tracking-2 opacity-70 pr-5">

@@ -1,8 +1,7 @@
-import { portfolio, project2, web } from "assets/images";
 import gsap from "gsap";
-import { useLayoutEffect, useRef } from "react";
+import { FC, useLayoutEffect, useRef } from "react";
 
-export const LargeImage = () => {
+export const LargeImage: FC<{ image?: string }> = ({ image }) => {
   const hero = useRef<HTMLDivElement>(null);
   const heroImage = useRef<HTMLImageElement>(null);
   useLayoutEffect(() => {
@@ -19,7 +18,7 @@ export const LargeImage = () => {
   return (
     <section ref={hero} className="h-[110vh] overflow-hidden relative">
       <img
-        src={project2}
+        src={image}
         ref={heroImage}
         className="block h-[125%] width-[100%] absolute -top-[35%] will-change-transform object-cover"
       />

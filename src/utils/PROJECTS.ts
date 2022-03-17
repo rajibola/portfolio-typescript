@@ -11,7 +11,19 @@ import {
   prospa4,
 } from "assets/images";
 
-export default [
+export function getProject(name: string) {
+  return PROJECTS.find(
+    (project) => project?.name.split(" ").join("-").toLocaleLowerCase() === name
+  );
+}
+export function getNextProject(name: string) {
+  const currentIndex = PROJECTS.findIndex(
+    (project) => project?.name.split(" ").join("-").toLocaleLowerCase() === name
+  );
+  const nextIndex = currentIndex === PROJECTS.length - 1 ? 0 : currentIndex + 1;
+  return PROJECTS[nextIndex];
+}
+const PROJECTS = [
   {
     name: "Clane Website",
     title: "A React Web Application",
@@ -129,3 +141,5 @@ export default [
     tag: "mobile",
   },
 ];
+
+export default PROJECTS;
