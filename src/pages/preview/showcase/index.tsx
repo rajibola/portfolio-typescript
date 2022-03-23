@@ -1,11 +1,4 @@
-import {
-  web,
-  portfolio,
-  nasa,
-  project1,
-  project2,
-  project3,
-} from "assets/images";
+import { project2, project3, web } from "assets/images";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
@@ -39,16 +32,19 @@ export const Showcase = () => {
           ref={addToRef}
           src={web}
           className="w-[70%] h-[70%] flex items-center justify-center  bg-cover"
+          alt="hero"
         />
         <img
           ref={addToRef}
           src={project2}
           className="w-[70%] h-[70%] flex items-center justify-center  bg-cover"
+          alt="hero"
         />
         <img
           ref={addToRef}
           src={project3}
           className="w-[70%] h-[70%] flex items-center justify-center  bg-cover"
+          alt="hero"
         />
       </div>
     </section>

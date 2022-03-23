@@ -59,7 +59,7 @@ export const ProjectCard = forwardRef<HTMLDivElement, Props>(
             id: "card-B",
           },
         });
-    }, []);
+    }, [margin]);
 
     return (
       <div

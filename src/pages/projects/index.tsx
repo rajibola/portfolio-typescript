@@ -1,8 +1,7 @@
-import { Header } from "shared/header";
-import { Hero } from "./hero";
-import { Gallery } from "./gallery";
-import SmoothScroll from "shared/smooth-scroll";
 import { Footer } from "shared/footer";
+import { Header } from "shared/header";
+import { Gallery } from "./gallery";
+import { Hero } from "./hero";
 
 export const Projects = () => {
   return (

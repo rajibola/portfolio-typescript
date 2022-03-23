@@ -1,11 +1,5 @@
 import gsap, { Expo } from "gsap";
-import {
-  forwardRef,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-} from "react";
+import { forwardRef, useCallback, useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
 
 // Gsap Ticker Function

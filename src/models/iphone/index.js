@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
-import { useSpring, a } from "@react-spring/three";
-import { Canvas, extend, useFrame, useThree } from "@react-three/fiber";
+import { a, useSpring } from "@react-spring/three";
 import { AdaptiveDpr, PresentationControls } from "@react-three/drei";
+import { Canvas, extend, useFrame } from "@react-three/fiber";
+import { useEffect, useRef, useState } from "react";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 

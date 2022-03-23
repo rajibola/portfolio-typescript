@@ -1,7 +1,7 @@
 import { dark } from "assets/images";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { AiOutlineGithub } from "react-icons/ai";
 import { BsStackOverflow } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa";
