@@ -16,23 +16,23 @@ const Phone = () => {
   return model ? <primitive object={model.scene} /> : null;
 };
 
-const Controls = () => {
-  const orbitRef = useRef();
-  const { camera, gl } = useThree();
+// const Controls = () => {
+//   const orbitRef = useRef();
+//   const { camera, gl } = useThree();
 
-  useFrame(() => {
-    orbitRef.current.update();
-  });
-  return (
-    <orbitControls
-      maxPolarAngle={Math.PI / 2}
-      minPolarAngle={Math.PI / 2}
-      autoRotate
-      ref={orbitRef}
-      args={[camera, gl.domElement]}
-    />
-  );
-};
+//   useFrame(() => {
+//     orbitRef.current.update();
+//   });
+//   return (
+//     <orbitControls
+//       maxPolarAngle={Math.PI / 2}
+//       minPolarAngle={Math.PI / 2}
+//       autoRotate
+//       ref={orbitRef}
+//       args={[camera, gl.domElement]}
+//     />
+//   );
+// };
 
 const Lights = ({ hovered }) => {
   const props = useSpring({

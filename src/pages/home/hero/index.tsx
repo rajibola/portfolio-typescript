@@ -1,10 +1,9 @@
 import { Expo, gsap } from "gsap";
+import { Iphone } from "models";
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { Header } from "shared/header";
-import { Iphone } from "models";
 
 const Hero = () => {
   let myText = useRef<HTMLDivElement>(null);

@@ -21,6 +21,7 @@ export const LargeImage: FC<{ image?: string }> = ({ image }) => {
         src={image}
         ref={heroImage}
         className="block h-[125%] width-[100%] absolute -top-[35%] will-change-transform object-cover"
+        alt="hero"
       />
     </section>
   );

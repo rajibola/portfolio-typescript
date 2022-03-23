@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import { Footer } from "shared/footer";
 import { getNextProject, getProject } from "utils/PROJECTS";
 import { Hero } from "./hero";
 import { Info } from "./info";
