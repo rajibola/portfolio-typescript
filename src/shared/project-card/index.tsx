@@ -1,17 +1,11 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { forwardRef, useEffect, useRef } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 interface Props {
-  // image?: string;
-  // margin?: boolean;
-  // title: string;
-  // name: string;
-  // tools: string[];
-  // images?: string[] | string;
   data: {
     image?: string;
     margin?: boolean;
@@ -29,6 +23,8 @@ export const ProjectCard = forwardRef<HTMLDivElement, Props>(
     const imageCover = useRef<HTMLDivElement>(null);
     const textCover = useRef<HTMLDivElement>(null);
     const parallax = useRef<HTMLDivElement>(null);
+
+    const [active, setActive] = useState(false);
 
     useEffect(() => {
       gsap

@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { ProjectCard } from "shared/project-card";
 import styled from "styled-components";
 import PROJECTS from "utils/PROJECTS";
@@ -20,9 +20,14 @@ export const Gallery = () => {
         css: {
           left: e.clientX,
           top: e.clientY,
+          display: "flex",
         },
       });
     };
+
+    const pageCurrent = page.current;
+    const buttonCurrent = button.current;
+    const itemsCurrent = items.current;
     page.current?.addEventListener("mousemove", moveCircle);
     items.current?.forEach(function (el: any) {
       el.addEventListener("mouseover", () => {
@@ -74,8 +79,9 @@ export const Gallery = () => {
     });
 
     return () => {
-      page.current?.removeEventListener("mousemove", moveCircle);
-      items.current?.forEach((el: any) => {
+      buttonCurrent?.removeEventListener("mousemove", moveCircle);
+      pageCurrent?.removeEventListener("mousemove", moveCircle);
+      itemsCurrent?.forEach((el: any) => {
         el.removeEventListener("mouseover", moveCircle);
         moveCircle(el).kill();
       });
@@ -93,11 +99,6 @@ export const Gallery = () => {
           return (
             <ProjectCard
               data={{ title, name, tools, images, margin: hasMargin }}
-              // title={title}
-              // name={name}
-              // tools={tools}
-              // images={images}
-              // margin={hasMargin}
               key={i}
               ref={addToRef}
             />
@@ -118,7 +119,6 @@ const SeeMoreButton = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid #ff9999;
@@ -126,6 +126,7 @@ const SeeMoreButton = styled.div`
   height: 75px;
   border-radius: 50%;
   background: transparent;
+  display: none;
 
   &:focus {
     outline: none;
