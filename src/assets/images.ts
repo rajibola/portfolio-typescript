@@ -24,3 +24,8 @@ export { default as claneweb3 } from "assets/clane-website/3.webp";
 export { default as portfolioOne1 } from "assets/portfolio-one/1.webp";
 export { default as portfolioOne2 } from "assets/portfolio-one/2.webp";
 export { default as portfolioOne3 } from "assets/portfolio-one/3.webp";
+
+export { default as tarvos1 } from "assets/tarvos/1.webp";
+export { default as tarvos2 } from "assets/tarvos/2.webp";
+export { default as tarvos3 } from "assets/tarvos/3.webp";
+export { default as tarvos4 } from "assets/tarvos/4.webp";

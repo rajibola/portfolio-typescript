@@ -15,6 +15,10 @@ import {
   portfolioOne1,
   portfolioOne2,
   portfolioOne3,
+  tarvos1,
+  tarvos2,
+  tarvos3,
+  tarvos4,
 } from "assets/images";
 
 export function getProject(name: string) {
@@ -117,7 +121,7 @@ const PROJECTS = [
       "React Native SVG",
       "Axios",
     ],
-    images: [project1],
+    images: [tarvos1, tarvos2, tarvos3, tarvos4],
     details: "",
     tag: "mobile",
   },
