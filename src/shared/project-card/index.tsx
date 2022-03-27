@@ -32,7 +32,7 @@ export const ProjectCard = forwardRef<HTMLDivElement, Props>(
         .to([imageCover.current, textCover.current], {
           delay: 1,
           duration: 1,
-          y: margin ? "-250" : "-50",
+          y: margin ? "-200" : "-50",
 
           scrollTrigger: {
             trigger: bgImage.current,

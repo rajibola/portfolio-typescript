@@ -2,7 +2,6 @@ import gsap, { Expo } from "gsap";
 import { forwardRef, useCallback, useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
 
-// Gsap Ticker Function
 function useTicker(callback, paused) {
   useLayoutEffect(() => {
     if (!paused && callback) {
@@ -93,32 +92,9 @@ export const BlobCursor = forwardRef((props, ref) => {
       loop();
     };
 
-    const setHideEvent = (e) => {
-      gsap.to(jellyRef.current, {
-        autoAlpha: 0,
-        duration: 0.2,
-        ease: Expo.easeOut,
-      });
-
-      loop();
-    };
-    const setShowEvent = (e) => {
-      gsap.to(jellyRef.current, {
-        autoAlpha: 1,
-        duration: 0.2,
-        ease: Expo.easeOut,
-      });
-
-      loop();
-    };
-
     ref.current?.addEventListener("mousemove", setFromEvent);
-    ref.current?.addEventListener("mouseover", setShowEvent);
-    ref.current?.addEventListener("mouseleave", setHideEvent);
     return () => {
-      // ref.current?.removeEventListener("mousemove", setFromEvent);
-      // ref.current?.removeEventListener("mouseleave", setHideEvent);
-      // ref.current?.removeEventListener("mouseover", setShowEvent);
+      ref.current?.removeEventListener("mousemove", setFromEvent);
     };
   }, [ref.current]);
 
@@ -126,14 +102,10 @@ export const BlobCursor = forwardRef((props, ref) => {
 
   // Return UI
   return (
-    <div className="container-div relative overflow-hidden">
+    <div className="container-div">
       <JellyBob ref={jellyRef} id={"jelly-id"} className="jelly-blob">
-        <div
-          ref={textRef}
-          id={"text-id"}
-          className="inside-text text-black uppercase"
-        >
-          NExt
+        <div ref={textRef} id={"text-id"} className="inside-text">
+          Hey There, I'm Lil Blob
         </div>
       </JellyBob>
     </div>
@@ -146,17 +118,17 @@ const JellyBob = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
   /* mix-blend-mode: difference; */
-  background-color: white;
+  background-color: lightgreen;
   border-radius: 150px;
   transform-origin: 50% 50%;
   transform: translate(-50%, -50%);
   will-change: width, height, transform, border;
-  z-index: 1;
+  z-index: 999;
   pointer-events: none;
 `;

@@ -106,8 +106,8 @@ export const Gallery = () => {
         })}
       </div>
 
-      <SeeMoreButton ref={button} className="">
-        <div ref={buttonText}>more</div>
+      <SeeMoreButton ref={button} className="font-graphik">
+        <div ref={buttonText}>More</div>
       </SeeMoreButton>
     </div>
   );
@@ -121,12 +121,12 @@ const SeeMoreButton = styled.div`
   transform: translate(-50%, -50%);
   justify-content: center;
   align-items: center;
-  border: 2px solid #ff9999;
-  width: 75px;
-  height: 75px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   background: transparent;
   display: none;
+  border: 1.5px solid white;
 
   &:focus {
     outline: none;
