@@ -18,7 +18,6 @@ export const About = () => {
         trigger: container.current,
         start: "top bottom",
         scrub: 1,
-        markers: true,
       },
     });
   }, []);

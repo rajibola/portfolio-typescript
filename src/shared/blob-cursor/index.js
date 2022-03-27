@@ -1,6 +1,6 @@
 import gsap, { Expo } from "gsap";
 import { forwardRef, useCallback, useLayoutEffect, useRef } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 function useTicker(callback, paused) {
   useLayoutEffect(() => {
@@ -73,6 +73,7 @@ export const BlobCursor = forwardRef((props, ref) => {
   useLayoutEffect(() => {
     // Caluclate Everything Function
     const setFromEvent = (e) => {
+      gsap.to(jellyRef.current, { css: { opacity: 1 } });
       // Mouse X and Y
       const x = e.clientX;
       const y = e.clientY;
@@ -92,9 +93,15 @@ export const BlobCursor = forwardRef((props, ref) => {
       loop();
     };
 
+    const setOpacity = (e) => {
+      gsap.to(jellyRef.current, { css: { opacity: 0 } });
+    };
+
     ref.current?.addEventListener("mousemove", setFromEvent);
+    ref.current?.addEventListener("mouseout", setOpacity);
     return () => {
       ref.current?.removeEventListener("mousemove", setFromEvent);
+      ref.current?.removeEventListener("mouseout", setOpacity);
     };
   }, [ref.current]);
 
@@ -104,8 +111,8 @@ export const BlobCursor = forwardRef((props, ref) => {
   return (
     <div className="container-div">
       <JellyBob ref={jellyRef} id={"jelly-id"} className="jelly-blob">
-        <div ref={textRef} id={"text-id"} className="inside-text">
-          Hey There, I'm Lil Blob
+        <div ref={textRef} id={"text-id"} className="inside-text text-black">
+          NEXT
         </div>
       </JellyBob>
     </div>
@@ -118,17 +125,18 @@ const JellyBob = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  width: 300px;
-  height: 300px;
+  width: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   /* mix-blend-mode: difference; */
-  background-color: lightgreen;
+  background-color: white;
   border-radius: 150px;
   transform-origin: 50% 50%;
   transform: translate(-50%, -50%);
   will-change: width, height, transform, border;
   z-index: 999;
   pointer-events: none;
+  opacity: 0;
 `;

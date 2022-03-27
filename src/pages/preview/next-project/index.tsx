@@ -2,9 +2,9 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { FC, useLayoutEffect, useRef, useState } from "react";
 import { BlobCursor } from "shared/blob-cursor";
-gsap.registerPlugin(ScrollTrigger);
 
 export const NextProject: FC<{ project: any }> = ({ project }) => {
+  gsap.registerPlugin(ScrollTrigger);
   const [active, setActive] = useState(false);
   const parent = useRef<HTMLDivElement>(null);
   const next = useRef<HTMLDivElement>(null);
@@ -27,7 +27,7 @@ export const NextProject: FC<{ project: any }> = ({ project }) => {
   return (
     <div
       ref={parent}
-      className="overflow-hidden"
+      className="overflow-hidden cursor-pointer"
       onMouseOver={() => setActive(true)}
       onMouseOut={() => setActive(false)}
     >

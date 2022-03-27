@@ -42,7 +42,6 @@ export const Hero = () => {
         trigger: line.current,
         start: "top bottom-=100",
         toggleActions: "play none none reverse",
-        // markers: true,
         scrub: true,
       },
     });
