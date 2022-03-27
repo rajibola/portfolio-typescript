@@ -9,6 +9,12 @@ import {
   prospa2,
   prospa3,
   prospa4,
+  scandiweb1,
+  scandiweb2,
+  scandiweb3,
+  portfolioOne1,
+  portfolioOne2,
+  portfolioOne3,
 } from "assets/images";
 
 export function getProject(name: string) {
@@ -29,6 +35,26 @@ const PROJECTS = [
     title: "A React Web Application",
     tools: ["React", "Redux", "TailwindCSS", "Styled-Component", "Axios"],
     images: [claneweb1, claneweb2, claneweb3],
+    details:
+      "We’ve worked incredibly hard to build a talented, industry leading team of professionals. With a team of creative, strategist, business and development specialists, we consistently strive to be at the forefront of new media technology.",
+    colors: [],
+    tag: "web",
+  },
+  {
+    name: "Scandiweb",
+    title: "A React Web Application",
+    tools: ["React", "Redux", "TailwindCSS", "Styled-Component", "Axios"],
+    images: [scandiweb1, scandiweb2, scandiweb3],
+    details:
+      "We’ve worked incredibly hard to build a talented, industry leading team of professionals. With a team of creative, strategist, business and development specialists, we consistently strive to be at the forefront of new media technology.",
+    colors: [],
+    tag: "web",
+  },
+  {
+    name: "First Portfolio",
+    title: "A React Web Application",
+    tools: ["React", "Redux", "TailwindCSS", "Styled-Component", "Axios"],
+    images: [portfolioOne1, portfolioOne2, portfolioOne3],
     details:
       "We’ve worked incredibly hard to build a talented, industry leading team of professionals. With a team of creative, strategist, business and development specialists, we consistently strive to be at the forefront of new media technology.",
     colors: [],

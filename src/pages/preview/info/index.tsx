@@ -1,11 +1,11 @@
 import { project3 } from "assets/images";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from "react";
+import { FC, useLayoutEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const Info = () => {
+export const Info: FC<{ image?: string }> = ({ image }) => {
   const bgImage = useRef<HTMLImageElement>(null);
   const imageCover = useRef<HTMLDivElement>(null);
 
@@ -48,7 +48,7 @@ export const Info = () => {
         <div className="w-[120%] h-[120%] relative">
           <img
             ref={bgImage}
-            src={project3}
+            src={image}
             alt={project3}
             className="min-w-full min-h-full bg-cover bg-center object-cover -mt-[30%]"
           />

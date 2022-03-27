@@ -14,11 +14,10 @@ export const Preview = () => {
   return (
     <div>
       <Hero title={project?.title} name={project?.name} />
-      <Info />
+      <Info image={project?.images[2]} />
       <LargeImage image={project?.images[1]} />
-      <Showcase />
+      <Showcase images={project?.images} />
       <NextProject project={nextProject} />
-      {/* <Footer /> */}
     </div>
   );
 };
