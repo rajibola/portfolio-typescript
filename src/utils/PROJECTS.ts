@@ -33,7 +33,15 @@ export function getNextProject(name: string) {
   const nextIndex = currentIndex === PROJECTS.length - 1 ? 0 : currentIndex + 1;
   return PROJECTS[nextIndex];
 }
-const PROJECTS = [
+const PROJECTS: {
+  name: string;
+  title: string;
+  tools: string[];
+  images: string[];
+  details: string;
+  colors: [];
+  tag: "web" | "mobile";
+}[] = [
   {
     name: "Clane Website",
     title: "A React Web Application",
@@ -94,6 +102,7 @@ const PROJECTS = [
     images: [portfolio],
     details: "",
     tag: "mobile",
+    colors: [],
   },
   {
     name: "Brij Mobile App",
@@ -109,6 +118,7 @@ const PROJECTS = [
     images: [web],
     details: "",
     tag: "mobile",
+    colors: [],
   },
   {
     name: "Tarvos",
@@ -124,6 +134,7 @@ const PROJECTS = [
     images: [tarvos1, tarvos2, tarvos3, tarvos4],
     details: "",
     tag: "mobile",
+    colors: [],
   },
   {
     name: "Prospa",
@@ -139,6 +150,7 @@ const PROJECTS = [
     images: [prospa1, prospa2, prospa3, prospa4],
     details: "",
     tag: "web",
+    colors: [],
   },
   {
     name: "Rise",
@@ -154,6 +166,7 @@ const PROJECTS = [
     images: [project1],
     details: "",
     tag: "mobile",
+    colors: [],
   },
   {
     name: "Tic Tac Toe",
@@ -169,6 +182,7 @@ const PROJECTS = [
     images: [web],
     details: "",
     tag: "mobile",
+    colors: [],
   },
 ];
 

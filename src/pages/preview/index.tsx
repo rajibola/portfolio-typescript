@@ -16,8 +16,8 @@ export const Preview = () => {
       <Hero title={project?.title} name={project?.name} />
       <Info image={project?.images[2]} />
       <LargeImage image={project?.images[1]} />
-      <Showcase images={project?.images} />
-      <NextProject project={nextProject} />
+      <Showcase images={project?.images} tag={project?.tag} />
+      {/* <NextProject project={nextProject} /> */}
     </div>
   );
 };
