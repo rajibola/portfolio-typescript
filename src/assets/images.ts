@@ -29,3 +29,23 @@ export { default as tarvos1 } from "assets/tarvos/1.webp";
 export { default as tarvos2 } from "assets/tarvos/2.webp";
 export { default as tarvos3 } from "assets/tarvos/3.webp";
 export { default as tarvos4 } from "assets/tarvos/4.webp";
+
+export { default as rapid1 } from "assets/rapid/1.webp";
+export { default as rapid2 } from "assets/rapid/2.webp";
+export { default as rapid3 } from "assets/rapid/3.webp";
+export { default as rapid4 } from "assets/rapid/4.webp";
+
+export { default as clane1 } from "assets/clane-mobile/1.webp";
+export { default as clane2 } from "assets/clane-mobile/2.webp";
+export { default as clane3 } from "assets/clane-mobile/3.webp";
+export { default as clane4 } from "assets/clane-mobile/4.webp";
+
+export { default as brass1 } from "assets/brass/1.webp";
+export { default as brass2 } from "assets/brass/2.webp";
+export { default as brass3 } from "assets/brass/3.webp";
+export { default as brass4 } from "assets/brass/4.webp";
+
+export { default as brij1 } from "assets/brij/1.webp";
+export { default as brij2 } from "assets/brij/2.webp";
+export { default as brij3 } from "assets/brij/3.webp";
+export { default as brij4 } from "assets/brij/4.webp";

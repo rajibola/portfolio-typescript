@@ -17,14 +17,15 @@ export const Showcase: FC<IShowcaseProps> = ({ images, tag }) => {
 
   useLayoutEffect(() => {
     gsap.utils.toArray(section.current?.children!).forEach((type: any, i) => {
+      console.log(section.current?.children!.length);
       let tl = gsap.timeline({
         scrollTrigger: {
           id: `${type.id}`,
           trigger: type,
-          start: "center center",
-          end: () => "+=" + type?.offsetWidth,
+          start: "top top",
+          end: () => "+=" + type?.offsetWidth! + "px",
           scrub: true,
-          pin: type,
+          pin: true,
           anticipatePin: 1,
           markers: true,
         },
@@ -58,7 +59,7 @@ export const Showcase: FC<IShowcaseProps> = ({ images, tag }) => {
   }, []);
 
   return (
-    <section className="relative">
+    <section className={`relative ${tag == "mobile" && "h-[300vh]"}`}>
       <div
         className={`min-h-screen flex items-center justify-center bg-[#4b4b4b] flex-col py-28 ${
           tag == "mobile" ? "gap-0 h-screen w-screen py-0" : "gap-28"
@@ -71,11 +72,11 @@ export const Showcase: FC<IShowcaseProps> = ({ images, tag }) => {
               ref={section}
               className="relative comparisonSection h-screen w-screen"
             >
-              <div className="w-full h-screen beforeImage bg-white absolute top-0 translate-x-full">
-                <div
-                  // src={images?.[3]}
-                  className="w-full h-screen bg-cover object-cover bg-white  bg-center absolute -translate-x-full"
-                  // alt="hero"
+              <div className="w-full h-screen beforeImage bg-[#0F0F11]">
+                <img
+                  src={images?.[0]}
+                  className="w-full h-screen bg-cover object-cover bg-[#0F0F11] bg-center"
+                  alt="hero"
                 />
               </div>
               <div
@@ -94,7 +95,7 @@ export const Showcase: FC<IShowcaseProps> = ({ images, tag }) => {
                 className="w-full h-screen absolute overflow-hidden top-0 translate-x-full"
               >
                 <img
-                  src={images?.[0]}
+                  src={images?.[2]}
                   className="w-full h-screen bg-cover bg-center object-cover -translate-x-full absolute"
                   alt="hero"
                 />

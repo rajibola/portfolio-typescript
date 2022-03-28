@@ -111,7 +111,7 @@ export const BlobCursor = forwardRef((props, ref) => {
   return (
     <div className="container-div">
       <JellyBob ref={jellyRef} id={"jelly-id"} className="jelly-blob">
-        <div ref={textRef} id={"text-id"} className="inside-text">
+        <div ref={textRef} id={"text-id"} className="inside-text text-black">
           NEXT
         </div>
       </JellyBob>
@@ -131,7 +131,7 @@ const JellyBob = styled.div`
   align-items: center;
   justify-content: center;
   /* mix-blend-mode: difference; */
-  background-color: black;
+  background-color: white;
   border-radius: 150px;
   transform-origin: 50% 50%;
   transform: translate(-50%, -50%);

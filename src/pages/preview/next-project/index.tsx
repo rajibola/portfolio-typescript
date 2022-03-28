@@ -27,7 +27,7 @@ export const NextProject: FC<{ project: any }> = ({ project }) => {
   return (
     <div
       ref={parent}
-      className="overflow-hidden cursor-pointer"
+      className="overflow-hidden cursor-pointer block bg-black"
       onMouseOver={() => setActive(true)}
       onMouseOut={() => setActive(false)}
     >
@@ -35,7 +35,7 @@ export const NextProject: FC<{ project: any }> = ({ project }) => {
         <img
           src={project.images[0]}
           ref={nextImge}
-          className="block h-[125%] width-[100%] absolute -top-[35%] will-change-transform object-cover"
+          className="block h-[125%] width-[100%] absolute -top-[35%] will-change-transform object-cover opacity-90"
           alt="hero"
         />
         <BlobCursor ref={parent} />
