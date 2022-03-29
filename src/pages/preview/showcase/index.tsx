@@ -16,9 +16,9 @@ export const Showcase: FC<IShowcaseProps> = ({ images, tag }) => {
   //   el && !items.current.includes(el) && items.current.push(el);
 
   useLayoutEffect(() => {
+    let tl: any;
     gsap.utils.toArray(section.current?.children!).forEach((type: any, i) => {
-      console.log(section.current?.children!.length);
-      let tl = gsap.timeline({
+      tl = gsap.timeline({
         scrollTrigger: {
           id: `${type.id}`,
           trigger: type,
@@ -27,7 +27,7 @@ export const Showcase: FC<IShowcaseProps> = ({ images, tag }) => {
           scrub: true,
           pin: true,
           anticipatePin: 1,
-          markers: true,
+          // markers: true,
         },
         defaults: { ease: "none" },
       });
@@ -56,13 +56,23 @@ export const Showcase: FC<IShowcaseProps> = ({ images, tag }) => {
         1
       );
     });
+
+    return () => {
+      gsap.killTweensOf(afterImage.current);
+      gsap.killTweensOf(thirdImage.current);
+      gsap.killTweensOf(section.current);
+      gsap.utils.toArray(section.current?.children!).forEach((type: any, i) => {
+        gsap.killTweensOf(type);
+      });
+      tl?.kill();
+    };
   }, []);
 
   return (
-    <section className={`relative ${tag == "mobile" && "h-[300vh]"}`}>
+    <section className={`relative ${tag === "mobile" && "h-[300vh]"}`}>
       <div
         className={`min-h-screen flex items-center justify-center bg-[#4b4b4b] flex-col py-28 ${
-          tag == "mobile" ? "gap-0 h-screen w-screen py-0" : "gap-28"
+          tag === "mobile" ? "gap-0 h-screen w-screen py-0" : "gap-28"
         }`}
       >
         {tag === "mobile" ? (

@@ -13,13 +13,18 @@ export const About = () => {
     gsap.to(textContainer.current, {
       y: "-10%",
       ease: "none",
-      //   duration: 1,
       scrollTrigger: {
+        id: "about-text",
         trigger: container.current,
         start: "top bottom",
         scrub: 1,
       },
     });
+
+    return () => {
+      gsap.killTweensOf(textContainer.current);
+      gsap.killTweensOf(container.current);
+    };
   }, []);
   return (
     <section

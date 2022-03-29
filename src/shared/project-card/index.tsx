@@ -72,7 +72,7 @@ export const ProjectCard = forwardRef<HTMLDivElement, Props>(
                 ref={bgImage}
                 src={images?.[0]}
                 alt={image}
-                className="min-w-full min-h-full h-[120%] w-[120%] bg-cover bg-center object-cover -mt-[25%]"
+                className="min-w-full min-h-full h-[120%] w-[120%] bg-cover bg-center object-cover -mt-[25%] opacity-95"
               />
             </div>
           </div>
