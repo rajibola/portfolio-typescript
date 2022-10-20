@@ -7,17 +7,16 @@ export interface IShowcaseProps {
   tag?: "mobile" | "web" | undefined;
 }
 export const Showcase: FC<IShowcaseProps> = ({ images, tag }) => {
-  // const items = useRef<HTMLDivElement[]>([]);
   const afterImage = useRef<HTMLDivElement>(null);
   const thirdImage = useRef<HTMLDivElement>(null);
   const section = useRef<HTMLDivElement>(null);
 
-  // const addToRef = (el: HTMLDivElement) =>
-  //   el && !items.current.includes(el) && items.current.push(el);
-
   useLayoutEffect(() => {
     let tl: any;
-    gsap.utils.toArray(section.current?.children!).forEach((type: any, i) => {
+    const sectionCurrent = section.current;
+    const afterCurrent = afterImage.current;
+    const thirdCurrent = thirdImage.current;
+    gsap.utils.toArray(sectionCurrent?.children!).forEach((type: any, i) => {
       tl = gsap.timeline({
         scrollTrigger: {
           id: `${type.id}`,
@@ -27,30 +26,29 @@ export const Showcase: FC<IShowcaseProps> = ({ images, tag }) => {
           scrub: true,
           pin: true,
           anticipatePin: 1,
-          // markers: true,
         },
         defaults: { ease: "none" },
       });
 
       tl.fromTo(
-        afterImage.current,
+        afterCurrent,
         { xPercent: 100, x: 0 },
         { xPercent: 0 },
         0
       ).fromTo(
-        afterImage.current?.firstChild!,
+        afterCurrent?.firstChild!,
         { xPercent: -100, x: 0 },
         { xPercent: 0 },
         0
       );
 
       tl.fromTo(
-        thirdImage.current,
+        thirdCurrent,
         { xPercent: 100, x: 0 },
         { xPercent: 0 },
         1
       ).fromTo(
-        thirdImage.current?.firstChild!,
+        thirdCurrent?.firstChild!,
         { xPercent: -100, x: 0 },
         { xPercent: 0 },
         1
@@ -58,13 +56,12 @@ export const Showcase: FC<IShowcaseProps> = ({ images, tag }) => {
     });
 
     return () => {
-      gsap.killTweensOf(afterImage.current);
-      gsap.killTweensOf(thirdImage.current);
-      gsap.killTweensOf(section.current);
-      gsap.utils.toArray(section.current?.children!).forEach((type: any, i) => {
+      gsap.killTweensOf(afterCurrent);
+      gsap.killTweensOf(thirdCurrent);
+      gsap.killTweensOf(sectionCurrent);
+      gsap.utils.toArray(sectionCurrent?.children!).forEach((type: any, i) => {
         gsap.killTweensOf(type);
       });
-      tl?.kill();
     };
   }, []);
 
@@ -77,7 +74,6 @@ export const Showcase: FC<IShowcaseProps> = ({ images, tag }) => {
       >
         {tag === "mobile" ? (
           <div>
-            {/* <div className="w-full h-screen bg-white" /> */}
             <section
               ref={section}
               className="relative comparisonSection h-screen w-screen"

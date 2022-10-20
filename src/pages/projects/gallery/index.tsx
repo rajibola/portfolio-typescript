@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { ProjectCard } from "shared/project-card";
 import styled from "styled-components";
 import PROJECTS from "utils/PROJECTS";
@@ -27,6 +27,7 @@ export const Gallery = () => {
 
     const pageCurrent = page.current;
     const buttonCurrent = button.current;
+    const buttonTextCurrent = buttonText.current;
     const itemsCurrent = items.current;
     page.current?.addEventListener("mousemove", moveCircle);
     items.current?.forEach(function (el: any) {
@@ -85,6 +86,10 @@ export const Gallery = () => {
         el.removeEventListener("mouseover", moveCircle);
         moveCircle(el).kill();
       });
+      gsap.killTweensOf(buttonCurrent);
+      gsap.killTweensOf(buttonTextCurrent);
+      gsap.killTweensOf(pageCurrent);
+      gsap.killTweensOf(itemsCurrent);
     };
   }, []);
 
