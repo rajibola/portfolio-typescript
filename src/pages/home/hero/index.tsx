@@ -70,18 +70,18 @@ const Hero = () => {
         <div className="absolute w-full h-full bg-[#000] z-40 left-[66.6%] top-0" />
       </div>
 
-      <div className="absolute top-0 right-[10%] left-0 self-center">
+      <div className="hidden md:block absolute top-0 right-[10%] left-0 self-center">
         <Iphone />
       </div>
 
       <div
         ref={myText}
-        className="w-[50%] max-w-[400px] right-0 font-graphik z-10 text-white self-center"
+        className="w-[100%] md:w-[50%] max-w-[400px] right-0 font-graphik z-10 text-white self-center"
       >
         <div className=" font-extralight text-6xl leading-[1] mb-4">
           Frontend developer.
         </div>
-        <div className=" font-sourceSansPro font-light text-16 mb-[22px] mix-blend-difference">
+        <div className="font-sourceSansPro font-light text-16 mb-[22px] mix-blend-difference">
           Hi, I'm Ridwan Ajibola. A frontend developer that focuses on building
           responsive cross-platform mobile applications and websites that makes
           user Experience realistic.
@@ -91,7 +91,10 @@ const Hero = () => {
           See My Works
         </Link>
       </div>
-      <div ref={ridwan} className="w-min h-min absolute left-14 bottom-[120px]">
+      <div
+        ref={ridwan}
+        className="w-min h-min absolute left-14 bottom-[120px] hidden md:block"
+      >
         <LargeText>RID</LargeText>
         <LargeText>WAN</LargeText>
       </div>
