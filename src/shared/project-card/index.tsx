@@ -65,7 +65,7 @@ export const ProjectCard = forwardRef<HTMLDivElement, Props>(
         <Link to={`/projects/${name.split(" ").join("-").toLowerCase()}`}>
           <div
             ref={imageCover}
-            className="h-[80vh]  max-w-[500px] w-full relative flex items-center overflow-hidden  p-0 m-0"
+            className="h-[80vh] max-w-[500px] w-full relative flex items-center overflow-hidden  p-0 m-0"
           >
             <div ref={ref} className="w-full h-full relative">
               <img

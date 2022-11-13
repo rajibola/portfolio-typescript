@@ -43,9 +43,9 @@ export const Info: FC<{ image?: string }> = ({ image }) => {
     <section className="text-white w-screen pt-40">
       <div
         ref={imageCover}
-        className="h-[80vh] max-w-[1140px] w-full relative flex items-center overflow-hidden  p-0 m-0"
+        className="h-[80vh] max-w-[1140px] w-full relative flex items-center overflow-hidden p-0 m-0"
       >
-        <div className="w-[120%] h-[120%] relative">
+        <div className="w-[120%] md:w-[120%] h-[120%] relative">
           <img
             ref={bgImage}
             src={image}
@@ -55,12 +55,12 @@ export const Info: FC<{ image?: string }> = ({ image }) => {
         </div>
       </div>
 
-      <div className="w-full bg-[#4b4b4b] -mt-[50vh] pt-[50vh] ">
-        <div className="flex justify-center items-center pl-[20%] px-[20vw] max-w-[1280px] mx-auto pt-[160px] pb-[120px]">
+      <div className="w-full bg-[#4b4b4b] -mt-[50vh] pt-[50vh]">
+        <div className="flex-col md:flex-row flex justify-center items-center md:px-[20vw] px-[10%]  max-w-[1280px] mx-auto pt-[160px] pb-[120px]">
           <div className="text-white w-1/3 font-graphik text-[1.25rem] leading-[1.8] self-start">
             <h1>Tools</h1>
           </div>
-          <div className="text-white w-96 font-graphik text-[1.25rem] leading-[1.8]">
+          <div className="text-white md:w-96 w-auto font-graphik text-[1.25rem] leading-[1.8]">
             <p>
               We’ve worked incredibly hard to build a talented, industry leading
               team of professionals. With a team of creative, strategist,
