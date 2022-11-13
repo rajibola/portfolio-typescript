@@ -24,8 +24,6 @@ export const ProjectCard = forwardRef<HTMLDivElement, Props>(
     const textCover = useRef<HTMLDivElement>(null);
     const parallax = useRef<HTMLDivElement>(null);
 
-    const [active, setActive] = useState(false);
-
     useEffect(() => {
       gsap
         .timeline()
@@ -60,7 +58,9 @@ export const ProjectCard = forwardRef<HTMLDivElement, Props>(
     return (
       <div
         ref={parallax}
-        className={`px-[5%] w-1/2 ${margin && "mt-60"} relative`}
+        className={`md:px-[5%] px-0 w-full md:w-1/2 ${
+          margin && "mt-60"
+        } relative`}
       >
         <Link to={`/projects/${name.split(" ").join("-").toLowerCase()}`}>
           <div

@@ -1,3 +1,4 @@
+import useMediaQuery from "hooks/useMediaHook";
 import { useEffect, useRef } from "react";
 import { hideText } from "utils/animations";
 
@@ -5,25 +6,27 @@ export const Hero = () => {
   const textContainer = useRef<HTMLDivElement>(null);
   const scroll = useRef<HTMLDivElement>(null);
 
+  const isDesktop = useMediaQuery("(min-width: 960px)");
+
   useEffect(() => {
-    hideText([textContainer.current?.children], 94, 1.5);
+    hideText([textContainer.current?.children], isDesktop ? 94 : 70, 1.5);
     hideText(scroll.current, 11, 1, 0.5);
   }, []);
 
   return (
-    <section className="text-white w-screen pb-[120px] pt-40">
+    <section className="text-white w-screen pb-[120px] pt-40 md:px-0 px-[10%]">
       <div className="max-w-[850px] w-full mx-auto font-graphik">
         <div
           ref={textContainer}
-          className="text-[82px] leading-[94px] font-thin my-[0.67em]"
+          className="md:text-[82px] text-[44px] md:leading-[94px] leading-[70px] font-thin md:my-[0.67em]"
         >
-          <div className="h-[94px] overflow-hidden">
+          <div className="md:h-[94px] h-[70px] overflow-hidden">
             <h1>I do amazing</h1>
           </div>
-          <div className="h-[94px] overflow-hidden">
+          <div className="md:h-[94px] h-[70px] overflow-hidden">
             <h1> things for the</h1>
           </div>
-          <div className="h-[94px] overflow-hidden">
+          <div className="md:h-[94px] h-[70px] overflow-hidden">
             <h1>people</h1>
           </div>
         </div>

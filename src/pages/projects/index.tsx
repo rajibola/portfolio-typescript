@@ -5,7 +5,7 @@ import { Hero } from "./hero";
 
 export const Projects = () => {
   return (
-    <div className="w-screen bg-black">
+    <div className="w-screen bg-black overflow-hidden">
       <Header show />
       <Hero />
       <Gallery />
