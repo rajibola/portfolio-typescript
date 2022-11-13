@@ -35,7 +35,7 @@ export const About = () => {
         ref={textContainer}
         className="bg-white/90 h-[150%] w-screen absolute top-[10%]"
       >
-        <div className="max-w-[850px] w-screen mx-auto font-graphik flex items-center h-screen">
+        <div className="max-w-[850px] lg:px-0 w-screen mx-auto font-graphik flex items-center h-screen px-[10%]">
           <div className=" font-sourceSansPro text-22">
             <div className="my-[2.3em] overflow-hidden h-[12px]">
               <h1 className="text-[11px] tracking-[2px] uppercase font-normal">
@@ -46,7 +46,7 @@ export const About = () => {
                 — About
               </h1>
             </div>
-            <p className="text-80 font-graphik font-extralight">
+            <p className="text-[40px] lg:text-80 font-graphik font-extralight">
               Hello! I'm Ridwan
             </p>
             <p className="text-20 font-graphik mb-4 leading-[36px]">
@@ -61,7 +61,7 @@ export const About = () => {
               been working with recently:
             </p> */}
 
-            <div className="mt-6 flex flex-col flex-wrap h-[150px] w-max gap-x-8">
+            <div className="mt-6 flex flex-col flex-nowrap lg:flex-wrap h-[150px] w-max gap-x-8">
               <List number={1} name="react" />
               <List number={2} name="react native" />
               <List number={3} name="Javascript (ES6+)" />
