@@ -64,9 +64,9 @@ export const Header: FC<{ show: boolean }> = ({ show }) => {
           <h1 className="uppercase text-11 font-graphik tracking-2">contact</h1>
         </Link>
       </div>
-      <div onClick={handleMenu} className="grid gap-1 md:hidden">
-        <div className="w-14 h-1 bg-white" />
-        <div className="w-10 h-1 bg-white" />
+      <div onClick={handleMenu} className="grid gap-[6px] md:hidden">
+        <div className="w-10 h-[2px] bg-white rounded" />
+        <div className="w-8 h-[2px] bg-white rounded" />
       </div>
       <div
         ref={menu}

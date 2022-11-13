@@ -49,7 +49,7 @@ export const About = () => {
             <p className="text-[40px] lg:text-80 font-graphik font-extralight">
               Hello! I'm Ridwan
             </p>
-            <p className="text-20 font-graphik mb-4 leading-[36px]">
+            <p className="mt-3 lg:mt-0 lg:text-20 text-16 font-graphik mb-4 lg:leading-[36px] leading-6">
               A frontend developer based in Nigeria. I have over 3 years of
               experience, learning, exploring, teaching and working with teams
               to build applications and solutions that span across several

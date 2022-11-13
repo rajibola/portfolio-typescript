@@ -72,7 +72,7 @@ export const Footer = () => {
               Let's work together.
             </StyledTitle>
           </Link>
-          <h2 className="text-22 font-sourceSansPro font-light text-transparent bg-clip-text bg-gradient-to-br from-white/60 to-white/80 z-20">
+          <h2 className="lg:text-22 text-lg font-sourceSansPro font-light text-transparent bg-clip-text bg-gradient-to-br from-white/60 to-white/80 z-20">
             {/* I'm available for full-time, freelance and contract work. */}I
             am currently open to new job opportunities. If you wanna get in
             touch, talk to me about a project collaboration or just say hi
@@ -89,7 +89,7 @@ export const Footer = () => {
           Design inspired by fleava's agency website. Remixed and built by
           Ridwan Ajibola
         </h1>
-        <div className="w-full h-[18px] my-10  flex items-center justify-center text-white/80 hover:text-white/50">
+        <div className="w-full h-[18px] lg:my-10 my-6  flex items-center justify-center text-white/80 hover:text-white/50">
           <h1 className="font-robotoCondensed font-light text-14 lg:w-[150px] w-fit text-right">
             © Ridwan Ajibola 2022
           </h1>
