@@ -43,15 +43,18 @@ export const Footer = () => {
   return (
     <div
       ref={screenRef}
-      className="font-graphik overflow-hidden top-0 w-full h-screen relative bg-black"
+      className="font-graphik overflow-hidden top-0 w-screen h-screen relative bg-black"
     >
       <BgImage
         ref={image}
-        className="w-[70%] h-[70%] bg-center bg-contain bg-no-repeat absolute -right-40 rotate-180 opacity-50 rounded-full"
+        className="lg:w-[70%] lg:h-[70%] min-h-[400px] w-[800px] -top-20 bg-center bg-contain bg-no-repeat absolute lg:-right-40 -right-18 rotate-180 opacity-50 rounded-full"
       />
 
-      <div ref={margin} className="mt-[15%] mx-[15%] relative z-10 h-full">
-        <div className="w-[70%] min-w-[300px]">
+      <div
+        ref={margin}
+        className="mt-0 lg:mt-[15%] lg:mx-[15%] mx-0 px-[10%] relative z-10 h-full lg:block flex items-center"
+      >
+        <div className="lg:w-[70%] lg:min-w-[300px] min-w-0">
           <div className="my-[2.3em] overflow-hidden h-[12px]">
             <h1 className="text-[11px] tracking-[2px] uppercase font-normal">
               /{" "}
@@ -63,13 +66,13 @@ export const Footer = () => {
           </div>
           <Link to="">
             <StyledTitle
-              className="text-80 w-fit font-extralight text-transparent bg-clip-text bg-gradient-to-br from-white/80 to-white/50 z-20 mb-8"
+              className="text-[3rem] lg:text-80 w-fit font-extralight text-transparent bg-clip-text bg-gradient-to-br from-white/80 to-white/50 z-20 mb-8"
               ref={title}
             >
               Let's work together.
             </StyledTitle>
           </Link>
-          <h2 className="text-22 font-sourceSansPro font-light text-transparent bg-clip-text bg-gradient-to-br from-white/50 to-white/50 z-20">
+          <h2 className="text-22 font-sourceSansPro font-light text-transparent bg-clip-text bg-gradient-to-br from-white/60 to-white/80 z-20">
             {/* I'm available for full-time, freelance and contract work. */}I
             am currently open to new job opportunities. If you wanna get in
             touch, talk to me about a project collaboration or just say hi
@@ -78,17 +81,20 @@ export const Footer = () => {
       </div>
       <div className="w-[110vh] h-[110vh] rounded-full border border-white/10 absolute -left-[50vh] top-0" />
 
-      <div ref={bottom} className="w-full bottom-0 absolute z-30">
-        <h1 className="text-center mb-1 font-sourceSansPro text-white opacity-50">
+      <div
+        ref={bottom}
+        className=" px-[10%] lg:px-0 w-full bottom-0 absolute z-30"
+      >
+        <h1 className="text-center mb-1 font-sourceSansPro text-white opacity-50 text-14 lg:text-16">
           Design inspired by fleava's agency website. Remixed and built by
           Ridwan Ajibola
         </h1>
         <div className="w-full h-[18px] my-10  flex items-center justify-center text-white/80 hover:text-white/50">
-          <h1 className="font-robotoCondensed font-light text-14 w-[150px] text-right">
+          <h1 className="font-robotoCondensed font-light text-14 lg:w-[150px] w-fit text-right">
             © Ridwan Ajibola 2022
           </h1>
           <div className="w-[1px] h-full bg-white mx-5" />
-          <div className="flex gap-4 w-[150px]">
+          <div className="flex gap-4 lg:w-[150px] w-fit">
             <Link to="">
               <FaLinkedin className="hover:text-white" />
             </Link>

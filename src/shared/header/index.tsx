@@ -26,18 +26,11 @@ export const Header: FC<{ show: boolean }> = ({ show }) => {
   };
 
   const handleCloseMenu = () => {
-    gsap
-      .timeline()
-      .to(menu.current, {
-        duration: 0.5,
-        ease: Power2.easeInOut,
-        marginLeft: "100vw",
-      })
-      .then(() => {
-        gsap.timeline().to(menu.current, {
-          display: "none",
-        });
-      });
+    gsap.timeline().to(menu.current, {
+      duration: 0.5,
+      ease: Power2.easeInOut,
+      marginLeft: "100vw",
+    });
   };
 
   return (
