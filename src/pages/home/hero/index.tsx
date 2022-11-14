@@ -78,17 +78,17 @@ const Hero = () => {
         ref={myText}
         className="w-[100%] md:w-[50%] max-w-[400px] right-0 font-graphik z-10 text-white self-center"
       >
-        <div className=" font-extralight text-6xl leading-[1] mb-4">
+        <div className="font-extralight md:text-6xl text-3xl leading-[1] mb-4">
           Frontend developer.
         </div>
-        <div className="font-sourceSansPro font-light text-16 mb-[22px] mix-blend-difference">
+        <div className="font-sourceSansPro font-light text-16 mb-[22px] text-white/60">
           Hi, I'm Ridwan Ajibola. A frontend developer that focuses on building
           responsive cross-platform mobile applications and websites that makes
           user Experience realistic.
         </div>
 
         <Link to="/projects" className="pb-1 text-lg">
-          See My Works
+          See my works
         </Link>
       </div>
       <div

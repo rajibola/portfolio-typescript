@@ -57,10 +57,10 @@ export const Info: FC<{ image?: string }> = ({ image }) => {
 
       <div className="w-full bg-[#4b4b4b] -mt-[50vh] pt-[50vh]">
         <div className="flex-col md:flex-row flex justify-center items-center md:px-[20vw] px-[10%]  max-w-[1280px] mx-auto pt-[160px] pb-[120px]">
-          <div className="text-white w-1/3 font-graphik text-[1.25rem] leading-[1.8] self-start">
+          <div className="text-white w-1/3 font-graphik text-[1.25rem] leading-[1.8] self-start mb-6 md:mb-0">
             <h1>Tools</h1>
           </div>
-          <div className="text-white md:w-96 w-auto font-graphik text-[1.25rem] leading-[1.8]">
+          <div className="text-white md:w-96 w-auto font-graphik md:text-[1.25rem] text-base leading-[1.8]">
             <p>
               We’ve worked incredibly hard to build a talented, industry leading
               team of professionals. With a team of creative, strategist,

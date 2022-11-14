@@ -68,8 +68,8 @@ export const Showcase: FC<IShowcaseProps> = ({ images, tag }) => {
   return (
     <section className={`relative ${tag === "mobile" && "h-[300vh]"}`}>
       <div
-        className={`min-h-screen flex items-center justify-center bg-[#4b4b4b] flex-col py-28 ${
-          tag === "mobile" ? "gap-0 h-screen w-screen py-0" : "gap-28"
+        className={`min-h-screen flex items-center justify-center bg-[#4b4b4b] flex-col md:py-28 py-5 ${
+          tag === "mobile" ? "gap-0 h-screen w-screen py-0" : "md:gap-28 gap-4"
         }`}
       >
         {tag === "mobile" ? (
@@ -124,7 +124,7 @@ export const Showcase: FC<IShowcaseProps> = ({ images, tag }) => {
           images?.map((image, id) => (
             <img
               src={image}
-              className="w-[70%] h-[70%] flex items-center justify-center  bg-cover"
+              className="md:w-[70%] w-[98%] h-[70%] bg-cover"
               alt="hero"
               key={id}
             />

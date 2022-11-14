@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -87,7 +87,7 @@ export const ProjectCard = forwardRef<HTMLDivElement, Props>(
           <h1 className="my-[30px] text-22 max-w-[300px] leading-[1.6] font-light">
             {title}
           </h1>
-          <div className="opacity-60 max-w-[300px] -mt-[10] text-14 mb-4 pr-5">
+          <div className="opacity-60 max-w-[300px] md:-mt-[10px] -mt-5  text-14 mb-4 pr-5">
             {tools.map((item, i) => (
               <span className="-mt-5 leading-[1.8] mr-[5px]" key={i}>
                 {item}.

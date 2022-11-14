@@ -66,13 +66,13 @@ export const Footer = () => {
           </div>
           <Link to="">
             <StyledTitle
-              className="text-[3rem] lg:text-80 w-fit font-extralight text-transparent bg-clip-text bg-gradient-to-br from-white/80 to-white/50 z-20 mb-8"
+              className="text-[2rem] lg:text-80 w-fit font-extralight text-transparent bg-clip-text bg-gradient-to-br from-white/80 to-white/50 z-20 lg:mb-8 mb-4"
               ref={title}
             >
               Let's work together.
             </StyledTitle>
           </Link>
-          <h2 className="lg:text-22 text-lg font-sourceSansPro font-light text-transparent bg-clip-text bg-gradient-to-br from-white/60 to-white/80 z-20">
+          <h2 className="lg:text-22 text-base font-sourceSansPro font-light text-transparent bg-clip-text bg-gradient-to-br from-white/60 to-white/80 z-20">
             {/* I'm available for full-time, freelance and contract work. */}I
             am currently open to new job opportunities. If you wanna get in
             touch, talk to me about a project collaboration or just say hi
@@ -85,16 +85,16 @@ export const Footer = () => {
         ref={bottom}
         className=" px-[10%] lg:px-0 w-full bottom-0 absolute z-30"
       >
-        <h1 className="text-center mb-1 font-sourceSansPro text-white opacity-50 text-14 lg:text-16">
+        <h1 className="text-center mb-1 font-sourceSansPro text-white opacity-50 text-12 lg:text-16">
           Design inspired by fleava's agency website. Remixed and built by
           Ridwan Ajibola
         </h1>
-        <div className="w-full h-[18px] lg:my-10 my-6  flex items-center justify-center text-white/80 hover:text-white/50">
-          <h1 className="font-robotoCondensed font-light text-14 lg:w-[150px] w-fit text-right">
+        <div className="w-full md:h-[18px] h-4 lg:my-10 my-6  flex items-center justify-center text-white/80 hover:text-white/50">
+          <h1 className="font-robotoCondensed font-light md:text-14 text-[10px] lg:w-[150px] w-fit text-right">
             © Ridwan Ajibola 2022
           </h1>
           <div className="w-[1px] h-full bg-white mx-5" />
-          <div className="flex gap-4 lg:w-[150px] w-fit">
+          <div className="flex gap-4 md:w-[150px] w-fit">
             <Link to="">
               <FaLinkedin className="hover:text-white" />
             </Link>
