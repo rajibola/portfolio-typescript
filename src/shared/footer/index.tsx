@@ -52,7 +52,7 @@ export const Footer = () => {
 
       <div
         ref={margin}
-        className="mt-0 lg:mt-[15%] lg:mx-[15%] mx-0 px-[10%] relative z-10 h-full lg:block flex items-center"
+        className="mt-0 md:mt-[15%] md:mx-[15%] mx-0 px-[10%] md:px-0 relative z-10 h-full lg:block flex items-center"
       >
         <div className="lg:w-[70%] lg:min-w-[300px] min-w-0">
           <div className="my-[2.3em] overflow-hidden h-[12px]">
