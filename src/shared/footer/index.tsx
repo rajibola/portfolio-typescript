@@ -64,7 +64,13 @@ export const Footer = () => {
               — About
             </h1>
           </div>
-          <Link to="">
+          <Link
+            to=""
+            onClick={(e) => {
+              window.location.href = "mailto:rajibola1997@gmail.com";
+              e.preventDefault();
+            }}
+          >
             <StyledTitle
               className="text-[2rem] lg:text-80 w-fit font-extralight text-transparent bg-clip-text bg-gradient-to-br from-white/80 to-white/50 z-20 lg:mb-8 mb-4"
               ref={title}

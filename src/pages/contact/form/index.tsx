@@ -25,14 +25,14 @@ export const Form = () => {
       );
   };
   return (
-    <section className="text-white w-screen pb-[120px] pt-20">
+    <section className="text-white w-screen pb-[120px] pt-20 px-[10%] md:px-0">
       <div className="max-w-[850px] w-full mx-auto font-graphik">
-        <div className="text-[72px] leading-[90px] font-extralight my-[0.5em]">
+        <div className="text-[35px] md:text-[72px] leading-[50px] md:leading-[90px] font-extralight my-[0.5em]">
           <div className="h-[94px] overflow-hidden">
             <h1>Get in touch</h1>
           </div>
         </div>
-        <div className="text-16 leading-8 max-w-[600px] mb-8">
+        {/* <div className="text-16 leading-8 max-w-[600px] mb-8">
           <div className="overflow-hidden">
             <h1>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus
@@ -40,7 +40,7 @@ export const Form = () => {
               quos vitae.
             </h1>
           </div>
-        </div>
+        </div> */}
 
         <form ref={form} onSubmit={sendEmail}>
           <input
