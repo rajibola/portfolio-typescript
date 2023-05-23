@@ -60,6 +60,7 @@ const PROJECTS: {
     images: [
       "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684837008/portfolio/screenshot-2023-05-21-at-172905-2_yho745.webp",
       "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684837009/portfolio/screenshot-2023-05-21-at-172851-2_mh8xgi.webp",
+      "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684837008/portfolio/screenshot-2023-05-21-at-173302-2_kjvcjc.webp",
       "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684837009/portfolio/screenshot-2023-05-23-at-110631-2_fzcoec.webp",
       "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684837009/portfolio/screenshot-2023-05-21-at-173225-2_iwvd9i.webp",
       "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684837008/portfolio/screenshot-2023-05-23-at-110428-2_vc2j01.webp",
