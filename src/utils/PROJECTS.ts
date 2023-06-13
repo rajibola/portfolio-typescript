@@ -19,32 +19,32 @@ const PROJECTS: {
   colors: [];
   tag: "web" | "mobile";
 }[] = [
-  {
-    name: "Animere",
-    title: "A Web Banner Ad Designer",
-    tools: [
-      "Next13",
-      "TypeScript",
-      "Redux",
-      "Framer Motion",
-      "Styled-Component",
-      "GraphQL",
-      "Apollo",
-    ],
-    images: [
-      "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684825840/portfolio/screenshot-2023-05-21-at-173739_mo61rx.webp",
-      "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684825840/portfolio/screenshot-2023-05-21-at-174512_sof3e3.webp",
-      "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684825840/portfolio/screenshot-2023-05-21-at-174442_a5j1wz.webp",
-      "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684825841/portfolio/screenshot-2023-05-21-at-174618_stpsk9.webp",
-      "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684825840/portfolio/screenshot-2023-04-18-at-225233_oysma3.webp",
-      "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684825840/portfolio/screenshot-2023-05-21-at-173953_awtpk1.webp",
-      "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684825841/portfolio/screenshot-2023-05-21-at-174546_zmnm2k.webp",
-    ],
-    details:
-      "We’ve worked incredibly hard to build a talented, industry leading team of professionals. With a team of creative, strategist, business and development specialists, we consistently strive to be at the forefront of new media technology.",
-    colors: [],
-    tag: "web",
-  },
+  // {
+  //   name: "Animere",
+  //   title: "A Web Banner Ad Designer",
+  //   tools: [
+  //     "Next13",
+  //     "TypeScript",
+  //     "Redux",
+  //     "Framer Motion",
+  //     "Styled-Component",
+  //     "GraphQL",
+  //     "Apollo",
+  //   ],
+  //   images: [
+  //     "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684825840/portfolio/screenshot-2023-05-21-at-173739_mo61rx.webp",
+  //     "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684825840/portfolio/screenshot-2023-05-21-at-174512_sof3e3.webp",
+  //     "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684825840/portfolio/screenshot-2023-05-21-at-174442_a5j1wz.webp",
+  //     "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684825841/portfolio/screenshot-2023-05-21-at-174618_stpsk9.webp",
+  //     "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684825840/portfolio/screenshot-2023-04-18-at-225233_oysma3.webp",
+  //     "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684825840/portfolio/screenshot-2023-05-21-at-173953_awtpk1.webp",
+  //     "https://res.cloudinary.com/dwn5whgwh/image/upload/v1684825841/portfolio/screenshot-2023-05-21-at-174546_zmnm2k.webp",
+  //   ],
+  //   details:
+  //     "We’ve worked incredibly hard to build a talented, industry leading team of professionals. With a team of creative, strategist, business and development specialists, we consistently strive to be at the forefront of new media technology.",
+  //   colors: [],
+  //   tag: "web",
+  // },
   {
     name: "BannerWave Component Library",
     title: "A component library for building Animere",
