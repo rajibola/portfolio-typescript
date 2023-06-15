@@ -20,7 +20,7 @@ export const onPressPrevImage = (
       [mainText.current?.children],
       {
         opacity: 0,
-        duration: 0.5,
+        duration: 0.9,
         x: "30",
         ease: Power3.easeIn,
         stagger: {
@@ -47,17 +47,6 @@ export const onPressPrevImage = (
         setcurrentValue(currentValue + 100);
       },
     });
-  // .from(
-  //   imagelist.current?.children[count - 2].firstChild!,
-  //   {
-  //     duration: 1,
-  //     backgroundColor: "rgba(0,0,0,0.8)",
-  //     zoom: 1.05,
-  //     transformOrigin: "top top",
-  //     ease: Power3.easeOut,
-  //   },
-  //   "<"
-  // );
 };
 
 export const onPressNextImage = (
@@ -70,7 +59,7 @@ export const onPressNextImage = (
 ) => {
   const tl = gsap.timeline();
   tl.to(imagelist.current?.children[count - 1]!, {
-    duration: 0.9,
+    duration: 1,
     backgroundColor: "black",
     ease: Power3.easeIn,
   })
@@ -78,7 +67,7 @@ export const onPressNextImage = (
       [mainText.current?.children],
       {
         opacity: 0,
-        duration: 0.5,
+        duration: 0.9,
         x: "-30",
         ease: Power3.easeIn,
         stagger: {
@@ -96,6 +85,7 @@ export const onPressNextImage = (
       },
       "<"
     )
+
     .to(imagelist.current?.children[count - 1]!, {
       backgroundColor: "rgba(0,0,0,0.5)",
       duration: 0,

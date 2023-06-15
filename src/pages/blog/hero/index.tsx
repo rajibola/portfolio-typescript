@@ -47,7 +47,7 @@ export const Hero = () => {
     });
 
     return () => ScrollTrigger.create({}).kill();
-  }, []);
+  }, [tl]);
 
   const onPressNext = () => {
     if (count === IMAGES.length) return;
