@@ -1,14 +1,12 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { FC, useLayoutEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { BlobCursor } from "shared/blob-cursor";
 import PROJECTS from "utils/PROJECTS";
 
-export const NextProject: FC<{ project: typeof PROJECTS[0] }> = ({
+export const NextProject: FC<{ project: (typeof PROJECTS)[0] }> = ({
   project,
 }) => {
-  let navigate = useNavigate();
   gsap.registerPlugin(ScrollTrigger);
   const [active, setActive] = useState(false);
   const parent = useRef<HTMLDivElement>(null);
