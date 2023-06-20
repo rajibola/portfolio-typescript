@@ -1,0 +1,64 @@
+:root {
+  --fs-0: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+  --fs-1: clamp(1.35rem, calc(1.3rem + 0.26vw), 1.5rem);
+  --fs-2: clamp(1.62rem, calc(1.56rem + 0.31vw), 1.8rem);
+  --fs-3: clamp(1.94rem, calc(1.87rem + 0.38vw), 2.16rem);
+  --fs-4: clamp(2.33rem, calc(2.24rem + 0.45vw), 2.59rem);
+  --fs-5: clamp(2.8rem, calc(2.69rem + 0.54vw), 3.11rem);
+}
+
+.markdown {
+  width: min(100% - 3rem, 65ch);
+  margin-inline: auto;
+  font-size: var(--fs-1);
+  line-height: 1.6;
+  color: black;
+}
+
+.markdown > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+
+.markdown h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+}
+
+.markdown h1 {
+  font-size: var(--fs-5);
+  font-weight: 700;
+}
+
+.markdown h2 {
+  font-size: var(--fs-4);
+  font-weight: 600;
+}
+
+.markdown h3 {
+  font-size: var(--fs-3);
+  font-weight: 500;
+}
+
+.markdown h4 {
+  font-size: var(--fs-2);
+  font-weight: 500;
+}
+
+.markdown h5 {
+  font-size: var(--fs-1);
+  font-weight: 500;
+}
+
+.markdown h6 {
+  font-size: var(--fs-0);
+  font-weight: 500;
+}
+
+.markdown pre {
+  font-size: var(--fs-0);
+  line-height: 1.4;
+}
