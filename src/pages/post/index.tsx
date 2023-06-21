@@ -3,18 +3,39 @@ import postlist from "../../posts.json";
 import styles from "./post.module.css";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { ReactComponent as Clipboard } from "assets/clipbaord.svg";
+import { ReactComponent as Clipboard } from "assets/clipboard.svg";
+import { ReactComponent as Checkmark } from "assets/checkmark.svg";
+import { useState } from "react";
+import { Header } from "shared";
+import { Footer } from "shared/footer";
 
 export const Post = () => {
   const pickPost = postlist[0];
+  const [copy, setCopy] = useState(false);
 
   const post = {
     title: pickPost.title,
     content: pickPost.content,
     date: pickPost.date,
+    thumbnail: pickPost.thumbnail,
   };
+
+  console.log(post);
   return (
-    <div className="bg-white/90">
+    <div className="bg-white">
+      <Header show />
+      <div className="relative mb-20">
+        <div
+          className="w-full h-full bg-cover object-cover"
+          style={{
+            backgroundImage: `url(${post.thumbnail})`,
+            width: "100vw",
+            height: "75vh",
+            backgroundColor: "rgba(0,0,0,0.5)",
+            backgroundBlendMode: "multiply",
+          }}
+        />
+      </div>
       <Markdown
         components={{
           code({ node, inline, className, children, ...props }) {
@@ -23,9 +44,28 @@ export const Post = () => {
               <div className="min-w-[25rem] bg-slate-400 rounded-md overflow-hidden">
                 <div className="flex justify-between px-4 text-white text-base items-center font-semibold">
                   <p className="text-base">{match[1]}</p>
-                  <button className="py-1 inline-flex items-center gap-1">
-                    <Clipboard className="" />
-                  </button>
+                  {copy ? (
+                    <button className="py-1 inline-flex items-center gap-1">
+                      <Checkmark className=" h-4 w-auto" />
+                      <p className="text-xs">Copied!</p>
+                    </button>
+                  ) : (
+                    <button
+                      className="py-1 inline-flex items-center gap-1"
+                      onClick={() => {
+                        navigator.clipboard.writeText(
+                          String(children).replace(/\n$/, "")
+                        );
+                        setCopy(true);
+                        setTimeout(() => {
+                          setCopy(false);
+                        }, 2000);
+                      }}
+                    >
+                      <Clipboard className=" h-4 w-auto" />
+                      <p className="text-xs">Copy</p>
+                    </button>
+                  )}
                 </div>
                 <SyntaxHighlighter
                   style={atomOneDark as any}
@@ -50,6 +90,7 @@ export const Post = () => {
         className={styles.markdown}
         children={post.content}
       />
+      <Footer />
     </div>
   );
 };
