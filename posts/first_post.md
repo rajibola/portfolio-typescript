@@ -1,11 +1,9 @@
 ---
-title: A test blog
+title: Simplifying Icon Usage and Management in React Applications
 author: Ridwan Ajibola
 date: 2023-01-03T11:50:20.255Z
 thumbnail: https://images.unsplash.com/photo-1545065695-64b67d551e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2873&q=80
 ---
-
-# Simplifying Icon Usage and Management in React Applications
 
 Icons are a fundamental element in modern user interfaces, providing visual cues and enhancing the overall user experience. In React applications, managing and utilizing icons efficiently can be a challenge, especially as the number of icons grows. In this article, we'll explore a solution to simplify icon usage and management by creating a reusable icon component and automating the generation of icon components from SVG files.
 

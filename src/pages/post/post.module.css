@@ -7,12 +7,18 @@
   --fs-5: clamp(2.8rem, calc(2.69rem + 0.54vw), 3.11rem);
 }
 
+.title {
+  width: min(100% - 3rem, 70ch);
+  margin-inline: auto;
+}
+
 .markdown {
   width: min(100% - 3rem, 65ch);
   margin-inline: auto;
   font-size: var(--fs-1);
   line-height: 1.6;
   color: black;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .markdown > * + * {
