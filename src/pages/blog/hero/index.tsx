@@ -1,6 +1,8 @@
 import gsap, { Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import styled from "styled-components";
+import tw from "twin.macro";
 import {
   onPressNextImage,
   onPressPrevImage,
@@ -10,9 +12,7 @@ import { IMAGES } from "utils/helpers";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const Hero = () => {
-  const tl = gsap.timeline();
-
+export const Hero = ({ timeline }: { timeline: gsap.core.Timeline }) => {
   const [count, setcount] = useState(1);
   const [currentValue, setcurrentValue] = useState(0);
 
@@ -26,14 +26,19 @@ export const Hero = () => {
     textEffect(mainText);
   }, [count]);
 
-  useLayoutEffect(() => {
-    tl.from(line.current, {
+  useEffect(() => {
+    timeline.from(line.current, {
       duration: 0.4,
       width: 0,
       ease: Power3.easeInOut,
     });
+    timeline.from(line.current, {
+      duration: 1,
+      x: 0,
+      ease: Power3.easeInOut,
+    });
 
-    gsap.to(mainText.current, {
+    gsap.timeline().to(mainText.current, {
       duration: 1,
       y: "200px",
       ease: "none",
@@ -47,7 +52,7 @@ export const Hero = () => {
     });
 
     return () => ScrollTrigger.create({}).kill();
-  }, [tl]);
+  }, [timeline]);
 
   const onPressNext = () => {
     if (count === IMAGES.length) return;
@@ -96,13 +101,10 @@ export const Hero = () => {
         ))}
       </div>
 
-      <div
-        ref={overlay}
-        className="bottom-0 absolute z-20 right-0 top-0 left-0 flex flex-col justify-between mx-32 ml-64 pt-32 pb-10 text-white overflow-hidden"
-      >
+      <Container ref={overlay}>
         <div
           ref={mainText}
-          className="font-extralight text-7xl font-graphik leading-tight w-3/4 mt-10 overflow-hidden"
+          className=" font-light text-6xl font-graphik leading-tight w-3/4 mt-10"
         >
           {IMAGES[count - 1].text.map((item, i) => (
             <div className="opacity-0" key={item + i}>
@@ -135,7 +137,12 @@ export const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };
+
+const Container = styled.div`
+  ${tw`bottom-0 absolute z-20 right-0 top-0 left-0 flex flex-col justify-end mx-auto pt-32 pb-10 text-white`}
+  width: min(100% - 3rem, 140ch);
+`;

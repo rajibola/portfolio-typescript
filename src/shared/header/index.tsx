@@ -1,24 +1,27 @@
-import gsap, { Bounce, Power2 } from "gsap";
+import { Bounce, Power2 } from "gsap";
 import { FC, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
-export const Header: FC<{ show: boolean }> = ({ show }) => {
+export const Header: FC<{ show: boolean; timeline?: any }> = ({
+  show,
+  timeline,
+}) => {
   let header = useRef(null);
   let letterI = useRef<HTMLDivElement>(null);
   let menu = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let dot = letterI.current?.firstChild!;
-    gsap.timeline().from(dot, {
-      delay: 2,
+    timeline.from(dot, {
+      delay: 1,
       top: "-70px",
       duration: 1,
       ease: Bounce.easeOut,
     });
-  }, []);
+  }, [timeline]);
 
   const handleMenu = () => {
-    gsap.timeline().to(menu.current, {
+    timeline.to(menu.current, {
       duration: 0.5,
       ease: Power2.easeInOut,
       marginLeft: "0",
@@ -26,7 +29,7 @@ export const Header: FC<{ show: boolean }> = ({ show }) => {
   };
 
   const handleCloseMenu = () => {
-    gsap.timeline().to(menu.current, {
+    timeline.to(menu.current, {
       duration: 0.5,
       ease: Power2.easeInOut,
       marginLeft: "100vw",
@@ -36,10 +39,10 @@ export const Header: FC<{ show: boolean }> = ({ show }) => {
   return (
     <header
       ref={header}
-      className="flex justify-between items-center h-[58px] my-4 md:my-[45px] px-10 md:px-[150px] w-screen z-30 text-white fixed"
+      className=" mix-blend-exclusion flex justify-between items-center h-[58px] my-4 md:my-[45px] px-10 md:px-[150px] w-screen z-30 fixed"
     >
       <Link to="/">
-        <div className="md:w-[515px] md:text-4xl text-2xl items-baseline font-graphik font-extralight mix-blend-difference">
+        <div className="md:w-[515px] md:text-4xl text-2xl items-baseline font-graphik font-extralight ">
           <div className="flex items-center ">
             r
             <div
@@ -58,7 +61,9 @@ export const Header: FC<{ show: boolean }> = ({ show }) => {
       </Link>
       <div className="hidden md:flex md:w-[515px] justify-end md:mr-[52px] text-sm gap-8 font-sourceSansPro lg:self-start mt-3">
         <Link to="/projects">
-          <h1 className="uppercase text-11 font-graphik tracking-2">works</h1>
+          <h1 className="uppercase text-11 font-graphik tracking-2 mix-blend-difference">
+            works
+          </h1>
         </Link>
         <Link to="/contact">
           <h1 className="uppercase text-11 font-graphik tracking-2">contact</h1>

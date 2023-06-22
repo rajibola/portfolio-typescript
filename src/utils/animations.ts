@@ -123,10 +123,11 @@ export const hideText = (
   target: any,
   height: number,
   duration: number = 0.9,
-  delay?: number
+  delay?: number,
+  timeline?: any
 ) => {
   const tl = gsap.timeline();
-  return tl.from(target, {
+  return timeline.from(target, {
     delay: delay,
     paddingTop: `${height}px`,
     duration: duration,

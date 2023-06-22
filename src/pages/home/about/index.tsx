@@ -9,21 +9,24 @@ export const About = () => {
   const textContainer = useRef<HTMLDivElement>(null);
   const container = useRef<HTMLDivElement>(null);
 
+  const textRef = textContainer.current;
+  const containerRef = container.current;
+
   useLayoutEffect(() => {
-    gsap.to(textContainer.current, {
+    gsap.timeline().to(textRef, {
       y: "-10%",
       ease: "none",
       scrollTrigger: {
         id: "about-text",
-        trigger: container.current,
+        trigger: containerRef,
         start: "top bottom",
         scrub: 1,
       },
     });
 
     return () => {
-      gsap.killTweensOf(textContainer.current);
-      gsap.killTweensOf(container.current);
+      gsap.killTweensOf(textRef);
+      gsap.killTweensOf(containerRef);
     };
   }, []);
   return (

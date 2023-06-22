@@ -1,11 +1,11 @@
-import { Expo, gsap } from "gsap";
+import { Expo } from "gsap";
 import { Iphone } from "models";
-import React, { useEffect, useRef } from "react";
+import React, { FC, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import tw from "twin.macro";
 
-const Hero = () => {
+const Hero: FC<{ timeline?: any }> = ({ timeline }) => {
   let myText = useRef<HTMLDivElement>(null);
   let ridwan = useRef<HTMLDivElement>(null);
   let cover = useRef<HTMLDivElement>(null);
@@ -24,34 +24,30 @@ const Hero = () => {
 
     console.log(firstName);
 
-    let tl = gsap.timeline();
-    tl.to([firstText, secondText, thirdText], {
-      delay: 1,
-      top: "-100%",
-      duration: 0.8,
-      ease: Expo.easeOut,
-      stagger: {
-        amount: 0.3,
-      },
-    })
-      .from(
-        [firstName, secondName],
-        {
-          paddingTop: "135px",
-          duration: 0.3,
-          opacity: 0,
-          ease: Expo.easeOut,
-          stagger: {
-            amount: 0.2,
-          },
+    timeline
+      .to([firstText, secondText, thirdText], {
+        // delay: 1,
+        top: "-100%",
+        duration: 0.8,
+        ease: Expo.easeOut,
+        stagger: {
+          amount: 0.3,
         },
-        "-=0.5"
-      )
+      })
+      .from([firstName, secondName], {
+        paddingTop: "135px",
+        duration: 0.4,
+        opacity: 0,
+        ease: Expo.easeOut,
+        stagger: {
+          amount: 0.2,
+        },
+      })
       .from(
         [myFirstText, mySecondText, myThirdText],
         {
-          paddingLeft: "25px",
-          duration: 0.2,
+          x: 25,
+          duration: 0.4,
           opacity: 0,
           ease: Expo.easeOut,
           stagger: {
@@ -60,7 +56,7 @@ const Hero = () => {
         },
         "-=0.1"
       );
-  }, []);
+  }, [timeline]);
 
   return (
     <div className="w-screen overflow-hidden relative h-screen flex bg-black px-[10%] justify-end">
@@ -81,7 +77,7 @@ const Hero = () => {
         <div className="font-extralight md:text-6xl text-3xl leading-[1] mb-4">
           Frontend developer.
         </div>
-        <div className="font-sourceSansPro font-light text-16 mb-[22px] text-white/60">
+        <div className="font-sourceSansPro font-normal text-16 mb-[22px] text-white/60">
           Hi, I'm Ridwan Ajibola. A frontend developer that focuses on building
           responsive cross-platform mobile applications and websites that makes
           user Experience realistic.

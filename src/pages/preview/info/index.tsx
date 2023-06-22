@@ -5,13 +5,15 @@ import { FC, useLayoutEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const Info: FC<{ image?: string }> = ({ image }) => {
+export const Info: FC<{ image?: string; timeline: gsap.core.Timeline }> = ({
+  image,
+  timeline,
+}) => {
   const bgImage = useRef<HTMLImageElement>(null);
   const imageCover = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    gsap
-      .timeline()
+    timeline
       .to(bgImage.current, {
         duration: 1,
 

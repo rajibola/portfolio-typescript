@@ -1,6 +1,6 @@
-import { FC, lazy } from "react";
+import { Blog, Contact, Home, Post, Preview, Projects } from "pages";
+import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Contact, Home, Preview, Projects, Blog, Post } from "pages";
 import ScrollToTop from "shared/scroll-to-top";
 
 // const Contact = lazy(() => import("pages/contact"));
@@ -17,9 +17,9 @@ export const Navigations: FC<any> = () => {
         <Route path={"/"} element={<Home />} />
         <Route path={"/contact"} element={<Contact />} />
         <Route path={"/projects"} element={<Projects />} />
-        <Route path={"/projects/:id"} element={<Preview />} />
+        <Route path={"projects/:id"} element={<Preview />} />
         <Route path={"/blogs"} element={<Blog />} />
-        <Route path={"/post"} element={<Post />} />
+        <Route path={"blogs/:id"} element={<Post />} />
       </Routes>
     </ScrollToTop>
   );

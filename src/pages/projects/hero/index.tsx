@@ -2,16 +2,27 @@ import useMediaQuery from "hooks/useMediaHook";
 import { useEffect, useRef } from "react";
 import { hideText } from "utils/animations";
 
-export const Hero = () => {
+export const Hero = ({ timeline }: { timeline: any }) => {
   const textContainer = useRef<HTMLDivElement>(null);
   const scroll = useRef<HTMLDivElement>(null);
 
   const isDesktop = useMediaQuery("(min-width: 960px)");
 
   useEffect(() => {
-    hideText([textContainer.current?.children], isDesktop ? 94 : 70, 1.5);
-    hideText(scroll.current, 11, 1, 0.5);
-  }, []);
+    hideText(
+      [textContainer.current?.children],
+      isDesktop ? 94 : 85,
+      1.5,
+      -1.5,
+      timeline
+    );
+    hideText(scroll.current, 11, 1, 0, timeline);
+
+    return () => {
+      timeline.kill();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [timeline]);
 
   return (
     <section className="text-white w-screen pb-[120px] pt-40 md:px-0 px-[10%]">
