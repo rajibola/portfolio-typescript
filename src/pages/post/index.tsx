@@ -1,17 +1,15 @@
-import { useState } from "react";
+import gsap from "gsap";
 import { useParams } from "react-router-dom";
 import { Header } from "shared";
-import postlist from "../../posts.json";
-import { Hero } from "./hero";
-import gsap from "gsap";
 import { Footer } from "shared/footer";
+import postlist from "../../posts.json";
 import { Article } from "./article";
+import { Hero } from "./hero";
 
 export const Post = () => {
   const postTimeline = gsap.timeline();
   const { id } = useParams();
   const pickPost = postlist[0];
-  const [copy, setCopy] = useState(false);
 
   const post = {
     title: pickPost.title,

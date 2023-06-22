@@ -1,14 +1,12 @@
 import { ReactComponent as Calendar } from "assets/calendar.svg";
 import { ReactComponent as Clock } from "assets/clock.svg";
-import { useState } from "react";
 import { useParams } from "react-router-dom";
+import styled from "styled-components";
 import postlist from "../../../posts.json";
-import styles from "./post.module.css";
 
 export const Hero = () => {
   const { id } = useParams();
   const pickPost = postlist[0];
-  const [copy, setCopy] = useState(false);
 
   const post = {
     title: pickPost.title,
@@ -23,7 +21,7 @@ export const Hero = () => {
     <div className="bg-white">
       <div className="relative">
         <div className="bg-black/30 absolute w-full h-full flex items-end pb-14 font-graphik">
-          <div className={styles.title}>
+          <Title>
             <h1 className="text-white text-6xl font-bold leading-tight mb-4">
               {post.title}
             </h1>
@@ -40,7 +38,7 @@ export const Hero = () => {
                 <span>3 min read</span>
               </p>
             </div>
-          </div>
+          </Title>
         </div>
         <div
           className="w-full h-full bg-cover object-cover"
@@ -56,3 +54,8 @@ export const Hero = () => {
     </div>
   );
 };
+
+const Title = styled.h1`
+  width: min(100% - 3rem, 70ch);
+  margin-inline: auto;
+`;
