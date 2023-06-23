@@ -5,94 +5,15 @@ backend:
 media_folder: "public/images"
 public_folder: "/images"
 collections:
-  # - name: "posts" # Used in routes, e.g., /admin/collections/blog
-  #   label: "Blog Posts" # Used in the UI
-  #   folder: "posts" # The path to the folder where the documents are stored
-  #   create: true # Allow users to create new documents in this collection
-  #   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-  #   fields: # The fields for each document, usually in front matter
-  #     - { label: "Title", name: "title", widget: "string" }
-  #     - { label: "Author", name: "author", widget: "string" }
-  #     - { label: "Publish Date", name: "date", widget: "datetime" }
-  #     - { label: "Featured Image", name: "thumbnail", widget: "image" }
-  #     - { label: "Body", name: "body", widget: "markdown" }
-
-  - name: posts
-    label: Post
-    editor:
-      preview: true
-    folder: content/posts
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+  - name: "posts" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog Posts" # Used in the UI
+    folder: "posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - { label: Title, name: title, widget: string }
-      - label: "Status"
-        name: "status"
-        widget: "select"
-        options: ["Published", "Featured", "Draft"]
-        default: "Published"
-      - { label: Date / Order, name: date, widget: date }
-      - { label: Post Featured Image, name: postFeaturedImage, widget: image }
-      - { label: Excerpt, name: excerpt, widget: text }
-      - { label: Content, name: body, widget: markdown }
-      - label: "Categories"
-        name: "categories"
-        widget: "list"
-        required: false
-        fields:
-          - label: "Category"
-            name: "category"
-            widget: "relation"
-            collection: "postCategories"
-            searchFields: ["title"]
-            valueField: "title"
-      - label: "Meta"
-        required: false
-        name: "meta"
-        widget: "object"
-        fields:
-          - { label: Title, name: title, widget: string, required: false }
-          - {
-              label: Description,
-              name: description,
-              widget: text,
-              required: false,
-              pattern: [".{,300}", "Must not exceed 300 characters"],
-            }
-          - {
-              label: Canonical Link,
-              name: canonicalLink,
-              widget: string,
-              required: false,
-            }
-          - { label: Noindex, name: noindex, widget: boolean, required: false }
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
 
-  - name: postCategories
-    label: Post Category
-    editor:
-      preview: false
-    folder: content/postCategories
-    slug: "{{slug}}"
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - { label: Title, name: title, widget: string }
-      - label: "Meta"
-        required: false
-        name: "meta"
-        widget: "object"
-        fields:
-          - { label: Title, name: title, widget: string, required: false }
-          - {
-              label: Description,
-              name: description,
-              widget: text,
-              required: false,
-              pattern: [".{,300}", "Must not exceed 300 characters"],
-            }
-          - {
-              label: Canonical Link,
-              name: canonicalLink,
-              widget: string,
-              required: false,
-            }
-          - { label: Noindex, name: noindex, widget: boolean, required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
