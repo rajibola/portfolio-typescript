@@ -1,6 +1,6 @@
 import gsap, { Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import {
@@ -8,7 +8,32 @@ import {
   onPressPrevImage,
   textEffect,
 } from "utils/animations";
-import { IMAGES } from "utils/helpers";
+// import { postlist } from "utils/helpers";
+import postlist from "../../../posts.json";
+
+const splitText = (text: string) => {
+  const words = text.split(" ");
+  let result = [];
+  let currentPart = "";
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+    const newPart = currentPart + (currentPart.length > 0 ? " " : "") + word;
+
+    if (newPart.length > 28) {
+      result.push(currentPart);
+      currentPart = word;
+    } else {
+      currentPart = newPart;
+    }
+  }
+
+  if (currentPart.length > 0) {
+    result.push(currentPart);
+  }
+
+  return result;
+};
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,7 +65,7 @@ export const Hero = ({ timeline }: { timeline: gsap.core.Timeline }) => {
 
     gsap.timeline().to(mainText.current, {
       duration: 1,
-      y: "200px",
+      y: "-200px",
       ease: "none",
       scrollTrigger: {
         id: "section-A",
@@ -55,7 +80,7 @@ export const Hero = ({ timeline }: { timeline: gsap.core.Timeline }) => {
   }, [timeline]);
 
   const onPressNext = () => {
-    if (count === IMAGES.length) return;
+    if (count === postlist.length) return;
     onPressNextImage(
       imagelist,
       count,
@@ -84,13 +109,13 @@ export const Hero = ({ timeline }: { timeline: gsap.core.Timeline }) => {
       className="relative w-screen h-screen overflow-hidden"
     >
       <div ref={imagelist} className="relative inline-flex">
-        {IMAGES.map(({ image }, i) => (
+        {postlist.map(({ thumbnail }, i) => (
           <div className="w-screen overflow-hidden h-screen">
             <div
-              key={i + image}
+              key={i + thumbnail}
               className="w-full h-full bg-cover object-cover"
               style={{
-                backgroundImage: `url(${image})`,
+                backgroundImage: `url(${thumbnail})`,
                 width: "100vw",
                 height: "100vh",
                 backgroundColor: "rgba(0,0,0,0.5)",
@@ -106,7 +131,7 @@ export const Hero = ({ timeline }: { timeline: gsap.core.Timeline }) => {
           ref={mainText}
           className=" font-light text-6xl font-graphik leading-tight w-3/4 mt-10"
         >
-          {IMAGES[count - 1].text.map((item, i) => (
+          {splitText(postlist[count - 1].title).map((item, i) => (
             <div className="opacity-0" key={item + i}>
               {item}
             </div>
@@ -116,7 +141,7 @@ export const Hero = ({ timeline }: { timeline: gsap.core.Timeline }) => {
         <div className="flex justify-between">
           <div className="font-graphik text-3xl font-thin">
             {count}
-            <span className="text-2xl font-normal">/{IMAGES.length}</span>
+            <span className="text-2xl font-normal">/{postlist.length}</span>
           </div>
 
           <div className="flex items-center self-end">

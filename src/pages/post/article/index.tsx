@@ -12,18 +12,10 @@ import postlist from "../../../posts.json";
 
 export const Article = () => {
   const { id } = useParams();
-  const pickPost = postlist[0];
+
+  const post = postlist.find((post) => post.id === Number(id))!;
   const [copy, setCopy] = useState(false);
 
-  const post = {
-    title: pickPost.title,
-    content: pickPost.content,
-    date: pickPost.date,
-    thumbnail: pickPost.thumbnail,
-    author: pickPost.author,
-  };
-
-  console.log(post);
   return (
     <div className="bg-white pt-20">
       <StyledMarkdown
@@ -178,7 +170,6 @@ export const StyledMarkdown = styled(Markdown)`
 const Line = styled.div`
   width: min(100% - 3rem, 97ch);
   margin: 0 auto;
-  margin-bottom: 20px;
   margin-top: 50px;
   font-family: "Source Sans Pro", sans-serif;
   align-self: center;

@@ -6,17 +6,8 @@ import postlist from "../../../posts.json";
 
 export const Hero = () => {
   const { id } = useParams();
-  const pickPost = postlist[0];
+  const post = postlist.find((post) => post.id === Number(id))!;
 
-  const post = {
-    title: pickPost.title,
-    content: pickPost.content,
-    date: pickPost.date,
-    thumbnail: pickPost.thumbnail,
-    author: pickPost.author,
-  };
-
-  console.log(post);
   return (
     <div className="bg-white">
       <div className="relative">
