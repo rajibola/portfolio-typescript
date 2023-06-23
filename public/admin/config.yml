@@ -12,8 +12,70 @@ collections:
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Author", name: "author", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Featured Image", name: "thumbnail", widget: "image" }
-
       - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Author"
+        name: "author"
+        widget: relation
+        required: false
+        collection: authors
+        value_field: slug
+        search_fields: [name, slug]
+        display_fields: [name]
+
+      - label: "Category"
+        name: "category"
+        widget: relation
+        required: false
+        collection: categories
+        value_field: slug
+        search_fields: [name, slug]
+        display_fields: [name]
+
+      - label: "Tags"
+        name: "tags"
+        widget: relation
+        required: false
+        collection: tags
+        value_field: slug
+        search_fields: [name, slug]
+        display_fields: [name]
+
+      - label: "Related Posts"
+        name: "related_posts"
+        widget: relation
+        required: false
+        collection: posts
+        value_field: slug
+        search_fields: [title, slug]
+        display_fields: [title]
+
+  - name: "categories"
+    label: "Categories"
+    folder: "meta/categories"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+
+  - name: "tags"
+    label: "Tags"
+    folder: "meta/tags"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+
+  - name: "authors"
+    label: "Authors"
+    folder: "meta/authors"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Bio", name: "bio", widget: "markdown" }
+      - { label: "Avatar", name: "avatar", widget: "image" }
